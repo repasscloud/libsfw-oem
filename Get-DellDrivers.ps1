@@ -9,6 +9,7 @@ $url_list = ((($adr | Where-Object -FilterScript {$_.href -match '^.*https://www
 <# MAIN LATITUDE DRIVERS LOOP #>
 foreach ($uri in $url_list)
 {
+    $uri
     <# CREATE DIRECTORY FOR DOWNLOAD #>
     [System.String]$dp = ($uri -replace '^.*[0-9]{5}/','')
     [System.String]$directory = $dp -replace '-windows-10.*$',''
@@ -19,7 +20,7 @@ foreach ($uri in $url_list)
     [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*-win10-.*\.CAB'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
     [System.String]$outFile = "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     try {
-        Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile
+        Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
     } catch {
         Write-Output "Unable to download file"
     }
