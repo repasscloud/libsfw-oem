@@ -29,16 +29,15 @@ foreach ($uri in $url_list)
         $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
     }
 
+    [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*-win10-.*\.CAB'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
+    [System.String]$outFile = "${RootDir}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
+    
     <# PERFORM SECURITY SCAN #>
-    $uri
-    [System.String[]]$scanResults = Complete-UrlVTScan -Uri $uri -ApiKey $env:API_KEY
+    [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
     $scanResults[0]
     $scanResults[1]
     $scanResults[2]
 
-    [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*-win10-.*\.CAB'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
-    [System.String]$outFile = "${RootDir}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
-    
     <# DOWNLOAD FILE #>
     try
     {
