@@ -16,7 +16,7 @@ foreach ($uri in $url_list)
     #New-Item -Path $PSScriptRoot\Dell\Latitude\win10 -ItemType Directory -Name $directory -Force -Confirm:$false
 
     <# DOWNLOAD CAB FILE #>
-    [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*downloads.dell.com/.*-win10-.*\.CAB$'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
+    [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*(downloads|dl).dell.com/.*-win10-.*\.CAB$'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
     $cabfile
     "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     "====================================================================="
@@ -26,3 +26,7 @@ foreach ($uri in $url_list)
     #Test-Path -Path "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     #Remove-Item -Path "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)" -Confirm:$false -Force
 }
+
+
+
+#(Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/000108641/latitude-e5570-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing).Links
