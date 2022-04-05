@@ -1,7 +1,7 @@
 <# PRELOAD - DO NOT EDIT #>
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
-$ErrorActionPreference = Stop
+$ErrorActionPreference = 'Stop'
 
 <# WINDOWS 10 DELL LATITUDE DRIVERS #>
 $adr = (Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000109893/dell-command-deploy-driver-packs-for-latitude-models' -UserAgent $userAgent -UseBasicParsing).Links
