@@ -41,7 +41,7 @@ function Complete-UrlVTScan {
         $headers.Add("Accept", "application/json")
         $headers.Add("x-apikey", "${ApiKey}")
         $response = Invoke-WebRequest -Uri "https://www.virustotal.com/api/v3/urls/${encodedText}" -Method GET -Headers $headers
-        $output = $response.Content | ConvertFrom-Json
+        $output = $response.Content | ConvertFrom-Json -AsHashTable
         $harmlessCount = $output.data.attributes.last_analysis_stats.harmless       # return data captured
         $maliciousCount = $output.data.attributes.last_analysis_stats.malicious     # return data captured
         $suspiciousCount = $output.data.attributes.last_analysis_stats.suspicious   # return data captured
