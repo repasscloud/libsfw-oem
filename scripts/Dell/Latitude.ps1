@@ -30,6 +30,7 @@ foreach ($uri in $url_list)
     }
 
     <# PERFORM SECURITY SCAN #>
+    $uri
     [System.String[]]$scanResults = Complete-UrlVTScan -Uri $uri -ApiKey $env:API_KEY
     $scanResults[0]
     $scanResults[1]
