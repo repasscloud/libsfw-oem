@@ -10,6 +10,7 @@ $url_list = ((($adr | Where-Object -FilterScript {$_.href -match '^.*https://www
 foreach ($uri in $url_list)
 {
     Write-Output "${uri}"
+    
     <# CREATE DIRECTORY FOR DOWNLOAD #>
     [System.String]$dp = ($uri -replace '^.*[0-9]{5}/','')
     [System.String]$directory = $dp -replace '-windows-10.*$',''
