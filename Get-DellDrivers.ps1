@@ -15,25 +15,30 @@ foreach ($uri in $url_list)
     New-Item -Path $PSScriptRoot\Dell\Latitude\win10 -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
 
     <# DOWNLOAD CAB FILE VARS #>
-    $uri
+    try
+    {
+        (Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links
+    }
+    catch
+    {
+        $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
+    }
     [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*-win10-.*\.CAB'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
-    $cabfile
-    "================================================================================="
-    # [System.String]$outFile = "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
+    [System.String]$outFile = "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     
-    # <# DOWNLOAD FILE #>
-    # try
-    # {
-    #     Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+    <# DOWNLOAD FILE #>
+    try
+    {
+        Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
         
-    #     <# VERIFY DOWNLOAD #>
-    #     if (Test-Path -Path $outFile)
-    #     {
-    #         Remove-Item -Path $outFile -Confirm:$false -Force
-    #     }
-    # }
-    # catch
-    # {
-    #     Write-Output "Unable to download file: ${uri}"
-    # }
+        <# VERIFY DOWNLOAD #>
+        if (Test-Path -Path $outFile)
+        {
+            Remove-Item -Path $outFile -Confirm:$false -Force
+        }
+    }
+    catch
+    {
+        Write-Output "Unable to download file: ${uri}"
+    }
 }
