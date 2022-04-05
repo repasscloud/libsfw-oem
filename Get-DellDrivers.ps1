@@ -8,13 +8,11 @@ $url_list = ((($adr | Where-Object -FilterScript {$_.href -match '^.*https://www
 
 <# MAIN LATITUDE DRIVERS LOOP #>
 foreach ($uri in $url_list)
-{
-    Write-Output "${uri}"
-    
+{    
     <# CREATE DIRECTORY FOR DOWNLOAD #>
     [System.String]$dp = ($uri -replace '^.*[0-9]{5}/','')
     [System.String]$directory = $dp -replace '-windows-10.*$',''
-    New-Item -Path $PSScriptRoot\Dell\Latitude\win10 -ItemType Directory -Name $directory -Force -Confirm:$false
+    New-Item -Path $PSScriptRoot\Dell\Latitude\win10 -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
 
     <# DOWNLOAD CAB FILE #>
     # [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*(downloads|dl).dell.com/.*-win10-.*\.CAB$'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
@@ -22,14 +20,12 @@ foreach ($uri in $url_list)
     [System.String]$outFile = "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     try {
         Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+        <# VERIFY DOWNLOAD #>
+        if (Test-Path -Path $outFile)
+        {
+            Remove-Item -Path $outFile -Confirm:$false -Force
+        }
     } catch {
-        Write-Output "Unable to download file"
+        Write-Output "Unable to download file: ${uri}"
     }
-
-    <# VERIFY DOWNLOAD #>
-    if (Test-Path -Path $outFile)
-    {
-        Remove-Item -Path $outFile -Confirm:$false -Force
-    }
-    
 }
