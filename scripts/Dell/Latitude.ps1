@@ -53,5 +53,8 @@ foreach ($uri in $url_list)
     {
         Write-Output "Unable to download file: ${uri}"
     }
+
+    <# VT API RATE LIMIT #>
+    Start-Sleep -Seconds 25
 }
 
