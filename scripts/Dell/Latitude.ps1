@@ -1,7 +1,11 @@
 <# PRELOAD - DO NOT EDIT #>
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
+[System.String]$RootDir = Split-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -Parent
 $ErrorActionPreference = 'Stop'
+
+<# LOAD FUNCTIONS #>
+. $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
 
 <# WINDOWS 10 DELL LATITUDE DRIVERS #>
 $adr = (Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000109893/dell-command-deploy-driver-packs-for-latitude-models' -UserAgent $userAgent -UseBasicParsing).Links
@@ -13,9 +17,9 @@ foreach ($uri in $url_list)
     <# CREATE DIRECTORY FOR DOWNLOAD #>
     [System.String]$dp = ($uri -replace '^.*[0-9]{5}/','')
     [System.String]$directory = $dp -replace '-windows-10.*$',''
-    New-Item -Path $PSScriptRoot\Dell\Latitude\win10 -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
+    New-Item -Path "${RootDir}\Dell\Latitude\win10" -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
 
-    <# DOWNLOAD CAB FILE VARS #>
+    <# DETERMINE URI #>
     try
     {
         (Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
@@ -24,8 +28,15 @@ foreach ($uri in $url_list)
     {
         $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
     }
+
+    <# PERFORM SECURITY SCAN #>
+    [System.String[]]$scanResults = Complete-UrlVTScan -Uri $uri -ApiKey $env:API_KEY
+    $scanResults[0]
+    $scanResults[1]
+    $scanResults[2]
+
     [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*-win10-.*\.CAB'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
-    [System.String]$outFile = "${PSScriptRoot}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
+    [System.String]$outFile = "${RootDir}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     
     <# DOWNLOAD FILE #>
     try
@@ -43,3 +54,4 @@ foreach ($uri in $url_list)
         Write-Output "Unable to download file: ${uri}"
     }
 }
+

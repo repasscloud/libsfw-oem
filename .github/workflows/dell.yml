@@ -23,6 +23,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Execute Main Loop
         env:
-          API: ${{ secrets.VT_API_KEY }}
+          API_KEY: ${{ secrets.VT_API_KEY }}
         run: |
-          ./Get-DellDrivers.ps1
+          ./scripts/Dell/Latitude.ps1
