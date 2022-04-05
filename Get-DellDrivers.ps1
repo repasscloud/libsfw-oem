@@ -12,7 +12,7 @@ foreach ($uri in $url_list)
     <# CREATE DIRECTORY FOR DOWNLOAD #>
     [System.String]$dp = ($uri -replace '^.*[0-9]{5}/','')
     [System.String]$directory = $dp -replace '-windows-10.*$',''
-    New-Item -Path $PSScriptRoot\Dell\Latitude\win10 -ItemType Directory -Name $directory -Force -Confirm:$false
+    #New-Item -Path $PSScriptRoot\Dell\Latitude\win10 -ItemType Directory -Name $directory -Force -Confirm:$false
 
     <# DOWNLOAD CAB FILE #>
     [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^https://downloads.dell.com/.*-win10-.*\.CAB$'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(https://.*\.CAB).*','$1'
