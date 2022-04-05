@@ -40,16 +40,21 @@ function Complete-UrlVTScan {
         $headers=@{}
         $headers.Add("Accept", "application/json")
         $headers.Add("x-apikey", "${ApiKey}")
-        $response = Invoke-WebRequest -Uri "https://www.virustotal.com/api/v3/urls/${encodedText}" -Method GET -Headers $headers
-        $output = $response.Content | ConvertFrom-Json -AsHashTable
-        $harmlessCount = $output.data.attributes.last_analysis_stats.harmless       # return data captured
-        $maliciousCount = $output.data.attributes.last_analysis_stats.malicious     # return data captured
-        $suspiciousCount = $output.data.attributes.last_analysis_stats.suspicious   # return data captured
-        $undetectedCount = $output.data.attributes.last_analysis_stats.undetected   # return data captured
-        $timeoutCount = $output.data.attributes.last_analysis_stats.timeout         # return data captured
+        try {
+            $response = Invoke-WebRequest -Uri "https://www.virustotal.com/api/v3/urls/${encodedText}" -Method GET -Headers $headers -ErrorAction Stop
+            $output = $response.Content | ConvertFrom-Json -AsHashTable
+            $harmlessCount = $output.data.attributes.last_analysis_stats.harmless       # return data captured
+            $maliciousCount = $output.data.attributes.last_analysis_stats.malicious     # return data captured
+            $suspiciousCount = $output.data.attributes.last_analysis_stats.suspicious   # return data captured
+            $undetectedCount = $output.data.attributes.last_analysis_stats.undetected   # return data captured
+            $timeoutCount = $output.data.attributes.last_analysis_stats.timeout         # return data captured
 
-        <# RETURN DATA #>
-        return $analysisId,$harmlessCount,$maliciousCount,$suspiciousCount,$undetectedCount,$timeoutCount
+            <# RETURN DATA #>
+            return $analysisId,$harmlessCount,$maliciousCount,$suspiciousCount,$undetectedCount,$timeoutCount
+        }
+        catch {
+            return $analysisId,0,0,0,0,0
+        }
     }
     
     end {
