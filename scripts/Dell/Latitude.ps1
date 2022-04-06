@@ -67,7 +67,7 @@ foreach ($url in $url_list)
     }
     catch
     {
-        Write-Output "Unable to download file: ${uri}"
+        Write-Output "[ERROR : UNABLE TO DOWNLOAD FILE] =================+> ${url}"
     }
 
     <# VT API RATE LIMIT #>
