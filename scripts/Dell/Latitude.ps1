@@ -13,8 +13,19 @@ $url_list = ($adr | Where-Object -FilterScript {$_.href -match '^.*10-driver-pac
 
 foreach ($url in $url_list)
 {
-    $url
-    $cabfile = ((((Invoke-WebRequest -Uri $url -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
+    $uri = $url
+    
+    <# DETERMINE URI #>
+    try
+    {
+        (Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
+    }
+    catch
+    {
+        $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
+    }
+    
+    $cabfile = ((((Invoke-WebRequest -Uri $uri -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
     $cabfile
 }
 
