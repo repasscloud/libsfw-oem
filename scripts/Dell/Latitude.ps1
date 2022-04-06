@@ -27,7 +27,7 @@ foreach ($url in $url_list)
     $iwrObject = Invoke-WebRequest -Uri $url -UserAgent $userAgent -UseBasicParsing
 
     [System.String]$cabfile = (((($iwrObject.Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*','') -replace '%20',''
-    [System.String]$outfile = "${RootDir}\Dell\Latitude\${directory}\win10\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
+    
     #[System.String]$DriverVersion = ($cabfile -replace '^http.*\/.*-*([A-Za-z]+)10-','') -replace '-.*',''
     [System.String]$DriverVersion = $cabfile.Split('-')[$cabfile.Split('-').Length-2]
     if (Test-Path -Path $PSScriptRoot\web-text.txt){Remove-Item -Path $PSScriptRoot\web-text.txt -Confirm:$false -Force}
@@ -39,6 +39,8 @@ foreach ($url in $url_list)
             $model = ($line -replace '.*<td align="center" colspan="1" rowspan="1">','') -replace '<.*',''
         }
     }
+    $directory = $model.Substring(9)
+    [System.String]$outfile = "${RootDir}\Dell\Latitude\${directory}\win10\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
 
     $cabfile
     $outfile
