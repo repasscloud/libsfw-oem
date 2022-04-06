@@ -50,7 +50,7 @@ function Complete-UrlVTScan {
             $timeoutCount = $output.data.attributes.last_analysis_stats.timeout         # return data captured
 
             <# RETURN DATA #>
-            return $analysisId,$harmlessCount,$maliciousCount,$suspiciousCount,$undetectedCount,$timeoutCount
+            return $analysisId,$harmlessCount,$maliciousCount,$suspiciousCount,$undetectedCount,$timeoutCount,$output.data.attributes
         }
         catch {
             return $analysisId,0,0,0,0,0
