@@ -27,9 +27,13 @@ Remove-Item -Path /Users/danijel-rpc/Projects/libsfw-oem/web.txt
 
 foreach($line in [System.IO.File]::ReadLines("/Users/danijel-rpc/Projects/libsfw-oem/web.txt"))
 {
-    if ($line -cmatch '<title>Latitude.*')
+    # if ($line -cmatch '<title>Latitude.*')
+    # {
+    #     ($line -replace '<title>','') -replace ' Windows 10.*',''
+    # }
+    if ($line -cmatch '<td align="center" colspan="1" rowspan="1">Latitude')
     {
-        ($line -replace '<title>','') -replace ' Windows 10.*',''
+        ($line -replace '.*<td align="center" colspan="1" rowspan="1">','') -replace '<.*',''
     }
 }
 

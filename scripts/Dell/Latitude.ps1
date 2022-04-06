@@ -34,9 +34,9 @@ foreach ($url in $url_list)
     ($iwrObject | Select-Object -Property Content).content | Out-File $PSScriptRoot\web-text.txt
     foreach($line in [System.IO.File]::ReadLines("${PSScriptRoot}\web-text.txt"))
     {
-        if ($line -cmatch '<title>Latitude.*')
+        if ($line -cmatch '<td align="center" colspan="1" rowspan="1">Latitude')
         {
-            $model = ($line -replace '<title>','') -replace ' Windows.*',''
+            ($line -replace '.*<td align="center" colspan="1" rowspan="1">','') -replace '<.*',''
         }
     }
 

@@ -4,15 +4,15 @@
     <meta charset="utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=8; IE=Edge,chrome=1" /><meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://supportkb.dell.com"><link rel="preconnect" href="https://players.brightcove.net">
     
-<title>Latitude 5480 Windows 10 Driver Pack | Dell Australia</title>
+<title>Latitude 9520 Windows 10 Driver Pack | Dell Australia</title>
 
                 <script type="application/ld+json">
-                    {"@context":"https://schema.org","@type":"Article","headline":"Latitude 5480 Windows 10 Driver Pack","author":[{"@type":"Organization","name":"Dell","url":"https://www.dell.com","logo":"https://www.dellcdn.com/support/staticcdn/core/svg/dtsrc/brand-dell.svg"}],"datePublished":"2021-09-28T04:41:00.000+0000"};
+                    {"@context":"https://schema.org","@type":"Article","headline":"Latitude 9520 Windows 10 Driver Pack","author":[{"@type":"Organization","name":"Dell","url":"https://www.dell.com","logo":"https://www.dellcdn.com/support/staticcdn/core/svg/dtsrc/brand-dell.svg"}],"datePublished":"2022-01-25T12:34:02.000+0000"};
                 </script>
 
-<link rel="canonical" href="https://www.dell.com/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack" />
-    <meta name="DESCRIPTION" content="Delta Report for Previous Driver CAB v/s Current Driver CAB" />
-    <meta name="keywords" content="Audio, chipset, communication, input, network, security, storage, video" />
+<link rel="canonical" href="https://www.dell.com/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack" />
+    <meta name="DESCRIPTION" content="The Article provides the summary on Latitude 9520 Windows 10 Driver Pack" />
+    <meta name="keywords" content="Latitude, 9520, Windows 10, Driver Pack" />
     <meta name="supportappindex" content="111.700.100.000" />
     <meta name="author" content="Dell AU" />
     <meta name="LANGUAGE" content="en" />
@@ -439,7 +439,7 @@
 <div id="divAuthenticationInformation" data-userauthenticated="0" data-userpremier="0" data-userchannelpartner="0"></div>
 <div class="alert alert-primary show-article-alert" role="alert" style="border: 0; margin-bottom: 0px; padding: calc(.75rem - 6px) 1rem;"><div class="container"><svg class="dti alert-icon"><svg id="es-alert-info-cir-duotone" viewBox="0 0 32 32"><path fill="currentColor" d="M16.3 29.6c7.342 0 13.3-5.958 13.3-13.3s-5.958-13.3-13.3-13.3c-7.342 0-13.3 5.958-13.3 13.3s5.958 13.3 13.3 13.3z"></path><path d="M16.3 22.95c-0.735 0-1.33-0.596-1.33-1.33v-6.65c0-0.735 0.595-1.33 1.33-1.33s1.33 0.595 1.33 1.33v6.65c0 0.735-0.596 1.33-1.33 1.33z"></path><path d="M14.97 9.65c0-0.735 0.595-1.33 1.33-1.33s1.33 0.595 1.33 1.33c0 0.735-0.595 1.33-1.33 1.33s-1.33-0.595-1.33-1.33z"></path></svg></svg><span class="article-alert-text" style="font-size:14px;"><strong>Some article numbers may have changed.</strong> If this isn't what you're looking for, try searching all articles. <a href="//www.dell.com/support/search/">Search articles</a></span></div></div>
     
-                    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"//www.dell.com","name":"home"}},{"@type":"ListItem","position":2,"item":{"@id":"https://www.dell.com/support/home/en-au","name":"Support"}},{"@type":"ListItem","position":3,"item":{"@id":"https://www.dell.com/support/kbdoc/en-au/000058604/isilon-o-service-witness-protocol-est%C3%A1-usando-portas-no-intervalo-de-portas-10000-65535?lang=pt","name":"Knowledge Base Article"}}]}</script>
+                    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"//www.dell.com","name":"home"}},{"@type":"ListItem","position":2,"item":{"@id":"https://www.dell.com/support/home/en-au","name":"Support"}},{"@type":"ListItem","position":3,"item":{"@id":"https://www.dell.com/support/kbdoc/en-au/000107587/latitude-7390-windows-10-driver-pack","name":"Knowledge Base Article"}}]}</script>
     <div class="py-2">
         <nav class="container d-none d-md-block py-2"><ol class="breadcrumb ml-0"><li class="breadcrumb-item"><a href="//www.dell.com" aria-label="//www.dell.com"><svg class="dti dti-home"><svg viewBox="0 0 32 32"><path d="M30.818 17.7l-3.1-3.322v-0.055h-0.051l-11.667-12.499-11.671 12.499h-0.070v0.075l-3.083 3.302 1.376 1.284 1.705-1.828v12.928h8.994v-10.488h5.468v10.488h8.994v-12.947l1.724 1.847 1.38-1.284zM25.835 28.201h-5.229v-10.488h-9.233v10.488h-5.231v-13.064l9.858-10.556 9.837 10.539v13.080z"></path></svg></svg></a></li><li class="breadcrumb-item"><a class="text-decoration" href="https://www.dell.com/support/home/en-au">Support</a></li><li class="breadcrumb-item">Knowledge Base Article</li></ol></nav>
     </div>
@@ -447,7 +447,7 @@
     <div class="pt-5 position-relative container">
         <div class="emc-article pb-10 mb-10">
                     <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
-        <p class="mb-2 mb-md-0">Article Number: 000130131</p>
+        <p class="mb-2 mb-md-0">Article Number: 000184698</p>
         <div class="d-flex flex-wrap">
                     <button id="printArticleForGeneral" class="btn btn-borderless" data-metrics="{&quot;btnname&quot;:&quot;articleprint&quot;, &quot;appcode&quot;:&quot;111.700.100.113&quot;}"><svg class="dti btn-icon"><svg viewBox="0 0 32 32"><path d="M23.272 7.868v-4.612h-14.543v4.612h-6.846v13.568h6.846v7.307h14.545v-7.307h6.844v-13.568h-6.846zM10.611 5.137h10.78v2.729h-10.78v-2.729zM21.389 26.863h-10.778v-11.27h10.78v11.27zM28.235 19.554h-4.964v-3.96h0.61v-1.882h-15.765v1.882h0.61v3.96h-4.962v-9.803h24.471v9.803z"></path><path d="M12.184 19.554v0.904h7.631v-1.882h-7.631z"></path><path d="M12.184 22.415h7.633v1.882h-7.633v-1.882z"></path><path d="M27.166 11.592c0 0.52-0.421 0.941-0.941 0.941s-0.941-0.421-0.941-0.941c0-0.52 0.421-0.941 0.941-0.941s0.941 0.421 0.941 0.941z"></path></svg></svg>Print</button>
             <button id="eMailButton" class="btn btn-borderless" data-metrics="{&quot;btnname&quot;:&quot;articleemail&quot;, &quot;appcode&quot;:&quot;111.700.100.114&quot;}">
@@ -458,27 +458,27 @@
                     <svg class="dti btn-icon"><svg viewBox="0 0 32 32"><path d="M16.002 1.886c-7.795 0-14.116 6.319-14.116 14.116s6.321 14.116 14.116 14.116 14.116-6.319 14.116-14.116-6.319-14.116-14.116-14.116zM3.817 16.943h4.608c0.055 1.602 0.243 3.127 0.555 4.525h-3.906c-0.695-1.382-1.133-2.908-1.257-4.525zM16.943 8.653v-4.591c1.431 0.527 2.696 2.221 3.565 4.591h-3.565zM21.080 10.536c0.341 1.385 0.557 2.916 0.619 4.525h-4.757v-4.525h4.137zM15.061 4.062v4.591h-3.563c0.87-2.37 2.135-4.064 3.563-4.591zM15.061 10.536v4.525h-4.755c0.062-1.609 0.279-3.14 0.619-4.525h4.136zM8.425 15.061h-4.608c0.124-1.617 0.563-3.144 1.257-4.525h3.908c-0.314 1.399-0.501 2.923-0.557 4.525zM10.306 16.943h4.755v4.525h-4.136c-0.341-1.385-0.557-2.916-0.619-4.525zM15.061 23.351v4.593c-1.429-0.527-2.694-2.223-3.563-4.593h3.563zM16.943 27.944v-4.593h3.565c-0.87 2.372-2.135 4.066-3.565 4.593zM16.943 21.468v-4.525h4.757c-0.062 1.609-0.279 3.14-0.619 4.525h-4.137zM23.58 16.943h4.608c-0.124 1.617-0.563 3.144-1.257 4.525h-3.906c0.312-1.399 0.499-2.923 0.555-4.525zM23.58 15.061c-0.055-1.602-0.243-3.127-0.557-4.525h3.906c0.695 1.382 1.133 2.908 1.257 4.525h-4.606zM25.758 8.653h-3.26c-0.52-1.581-1.205-2.946-2.016-4.023 2.11 0.834 3.928 2.238 5.276 4.023zM11.522 4.631c-0.811 1.077-1.495 2.441-2.014 4.023h-3.262c1.348-1.784 3.166-3.189 5.276-4.023zM6.246 23.351h3.26c0.52 1.581 1.203 2.946 2.014 4.023-2.108-0.834-3.927-2.238-5.274-4.023zM20.484 27.373c0.811-1.077 1.495-2.441 2.014-4.023h3.26c-1.346 1.784-3.164 3.189-5.274 4.023z"></path></svg></svg>English
 <svg class="dti dropdown-toggle-icon"><svg id="dt-chevron-down" viewBox="0 0 32 32"><path d="M21.997 16.002l-11.994-12.356v24.708z"></path></svg></svg>                </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButtonForLanguage">
-<a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=cs">Česky</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=da">Dansk</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=de">Deutsch</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=en">English</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=es">Español</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=fi">Suomi</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=fr">Français</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=it">Italiano</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=ja">日本語</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=ko">한국어</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=nl">Nederlands</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=no">Norsk</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=pl">Polski</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=pt">Português</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=ru">Русский</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=sv">Svenska</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=tr">Türkçe</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=tw">繁體中文</a><a class="dropdown-item" href="/support/kbdoc/en-au/000130131/latitude-5480-windows-10-driver-pack?lang=zh">简体中文</a>                    </div>
+<a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=cs">Česky</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=da">Dansk</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=de">Deutsch</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=en">English</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=es">Español</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=fi">Suomi</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=fr">Français</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=it">Italiano</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=ja">日本語</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=ko">한국어</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=nl">Nederlands</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=no">Norsk</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=pl">Polski</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=pt">Português</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=ru">Русский</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=sv">Svenska</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=tr">Türkçe</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=tw">繁體中文</a><a class="dropdown-item" href="/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack?lang=zh">简体中文</a>                    </div>
             </div>
         </div>
     </div>
     <hr class="mt-1 mb-6">
     <div>
-<h1 id="detailTitle">Latitude 5480 Windows 10 Driver Pack</h1>            <span hidden id="Summaryhidden">Delta Report for Previous Driver CAB v/s Current Driver CAB</span>
+<h1 id="detailTitle">Latitude 9520 Windows 10 Driver Pack</h1>            <span hidden id="Summaryhidden">The Article provides the summary on Latitude 9520 Windows 10 Driver Pack</span>
             <h2 class="mb-8 h4-heading">
                 <span>Summary:</span>
-                <span id="summaryFullContent" style="display:none">Delta Report for Previous Driver CAB v/s Current Driver CAB</span><a id="showLessSummary" style="display:none" href="#">See less</a>
-                    <span>Delta Report for Previous Driver CAB v/s Current Driver CAB</span>
+                <span id="summaryFullContent" style="display:none">The Article provides the summary on Latitude 9520 Windows 10 Driver Pack</span><a id="showLessSummary" style="display:none" href="#">See less</a>
+                    <span>The Article provides the summary on Latitude 9520 Windows 10 Driver Pack</span>
             </h2>
     </div>
     <script type="application/x-suppress">
     $('document').ready(function () {
         var advisoriesRedirectUrl = '//www.dell.com/support/preferences/us/en/04/notifications/advisories';
-        $("#printArticleForGeneral").on('click', function () { var printUrl = "/support/kbdoc/en-au/printview/000130131/10/en"; window.open(printUrl);  });
+        $("#printArticleForGeneral").on('click', function () { var printUrl = "/support/kbdoc/en-au/printview/000184698/10/en"; window.open(printUrl);  });
         $("#advisoriesAlert").on('click', function () { window.open(advisoriesRedirectUrl, '_blank'); });$("#eMailButton").on('click', SendEmailNotification);
         $("#showMoreSummary").on('click', function () { $("#summaryFullContent").show();$("#showLessSummary").show();$("#summaryTrimmedContent").hide();$("#showMoreSummary").hide();return false; });
         $("#showLessSummary").on('click', function () { $("#summaryTrimmedContent").show(); $("#showMoreSummary").show(); $("#summaryFullContent").hide(); $("#showLessSummary").hide(); return false; });
-        Dell.Metrics.sc.servicetag = '';Dell.Metrics.sc.emcserialnum = '';Dell.Metrics.sc.emcproducts = '';Dell.Metrics.sc.docid = '000130131';Dell.Metrics.sc.doclanguage = 'en';
+        Dell.Metrics.sc.servicetag = '';Dell.Metrics.sc.emcserialnum = '';Dell.Metrics.sc.emcproducts = '';Dell.Metrics.sc.docid = '000184698';Dell.Metrics.sc.doclanguage = 'en';
     });
     </script>
 
@@ -486,14 +486,14 @@
                 <input type="hidden" id="hidLess" value="less..." />
                 <input type="hidden" id="hidSeeMore" value="See more" />
                 <input type="hidden" id="hidSeeLess" value="See less" />
-                <input type="hidden" id="hidArticleNumber" value="000130131" />
-                <input type="hidden" id="hidTitle" value="Latitude 5480 Windows 10 Driver Pack" />
+                <input type="hidden" id="hidArticleNumber" value="000184698" />
+                <input type="hidden" id="hidTitle" value="Latitude 9520 Windows 10 Driver Pack" />
                 <input type="hidden" id="hidUserAccessLevel" value="" />
                 <input type="hidden" id="hidLangCode" value="en" />
                 <input type="hidden" id="hidArticleAccessLevel" value="10" />
-                <input type="hidden" id="hidkbTitle" value="latitude-5480-windows-10-driver-pack" />
+                <input type="hidden" id="hidkbTitle" value="latitude-9529-windows-10-driver-pack" />
                 <input type="hidden" id="hidkbsrc" value="True" />
-                <input type="hidden" id="hdnUrlName" value="latitude-5480-windows-10-driver-pack" />
+                <input type="hidden" id="hdnUrlName" value="latitude-9529-windows-10-driver-pack" />
                 <div class="row">
                     <div id="lkb-nav-container" class="d-none d-md-block col-lg-2 col-3 word-break-onoverflow">
     <div id="lkb-nav">
@@ -509,32 +509,32 @@
                                 <h3 id="article-content" class="mb-0 h4-heading">Article Content</h3>
                                 <hr class="mb-8">
                                 <div id="tabcontent" class="lkbContentFormat mb-8">
-                <h4 class="mb-2 content-heading">Symptoms</h4><div class="mb-10"><table id="ContentSectionTable" border="1">
+<h4 class="mb-2 content-heading">Instructions</h4><div class="mb-10"><table id="ContentSectionTable" border="1">
    <tbody>
     <tr>
-     <td align="center" colspan="1" rowspan="1"> <h4>Driver Pack Summary</h4> </td>
+     <td align="center" colspan="1" rowspan="1"> <p>Driver Pack Summary</p> </td>
     </tr>
     <tr>
      <td align="center" colspan="1" rowspan="1"> 
       <table id="CurrentDriverCABSummary" border="1">
        <tbody>
         <tr>
-         <td align="center" colspan="1" rowspan="1"><strong>Model</strong></td>
-         <td align="center" colspan="1" rowspan="1"><strong>Platform</strong></td>
-         <td align="center" colspan="1" rowspan="1"><strong>ID</strong></td>
-         <td align="center" colspan="1" rowspan="1"><strong>Version</strong></td>
-         <td align="center" colspan="1" rowspan="1"><strong>Release Date</strong></td>
-         <td align="center" colspan="1" rowspan="1"><strong>Size</strong></td>
-         <td align="center" colspan="1" rowspan="1"><strong>Link</strong></td>
+         <td align="center" colspan="1" rowspan="1">Model</td>
+         <td align="center" colspan="1" rowspan="1">Platform</td>
+         <td align="center" colspan="1" rowspan="1">ID</td>
+         <td align="center" colspan="1" rowspan="1">Version</td>
+         <td align="center" colspan="1" rowspan="1">Release Date</td>
+         <td align="center" colspan="1" rowspan="1">Size</td>
+         <td align="center" colspan="1" rowspan="1">Link</td>
         </tr>
         <tr>
-         <td align="center" colspan="1" rowspan="1">Latitude 5480</td>
+         <td align="center" colspan="1" rowspan="1">Latitude 9520</td>
          <td align="center" colspan="1" rowspan="1">Windows10</td>
-         <td align="center" colspan="1" rowspan="1">0T2MV</td>
-         <td align="center" colspan="1" rowspan="1">A14</td>
-         <td align="center" colspan="1" rowspan="1">09/08/2020</td>
-         <td align="center" colspan="1" rowspan="1">1109 MB</td>
-         <td align="center" colspan="1" rowspan="1"><a href="https://downloads.dell.com/FOLDER06447757M/1/5480-WIN10-A14-0T2MV.CAB" target="_blank">Download Now</a></td>
+         <td align="center" colspan="1" rowspan="1">YY2NG</td>
+         <td align="center" colspan="1" rowspan="1">A03</td>
+         <td align="center" colspan="1" rowspan="1">01/25/2022</td>
+         <td align="center" colspan="1" rowspan="1">1547 MB</td>
+         <td align="center" colspan="1" rowspan="1"><a id="ExistingCabDownloadLink" href="https://downloads.dell.com/FOLDER07789340M/1/9520-win10-A03-YY2NG.CAB" target="_blank">Download Now</a></td>
         </tr>
        </tbody>
       </table> </td>
@@ -543,10 +543,10 @@
      <td align="center" colspan="1" rowspan="1">&nbsp; <p><a href="https://www.dell.com/support/article/sln312414" target="_self">Dell Command | Deploy Driver Pack Homepage&nbsp;</a>|&nbsp;<a href="https://www.dell.com/support/article/how13320" target="_self">Understanding Delta (Comparison) Report</a></p> </td>
     </tr>
     <tr>
-     <td align="center" colspan="1" rowspan="1"> <p><strong>Delta (Comparison)Report:-</strong> Previous DriverPack v/s Current DriverPack</p> </td>
+     <td align="center" colspan="1" rowspan="1"> <p>Delta (Comparison)Report:- Previous DriverPack v/s Current DriverPack</p> </td>
     </tr>
     <tr>
-     <td align="center" colspan="1" rowspan="1"> <p>(8YWW9-A13-05/26/2020)<br> <strong>v/s</strong><br> (0T2MV-A14-09/08/2020)</p> </td>
+     <td align="center" colspan="1" rowspan="1"> <p>(M08HX-A02-08/24/2021) v/s YY2NG-A03-01/18/2022</p> <br> &nbsp;</td>
     </tr>
     <tr>
      <td align="left" colspan="1" rowspan="1"> 
@@ -564,221 +564,170 @@
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">audio</td>
          <td align="left" colspan="1" rowspan="1" width="150px"> <p>Realtek High Definition Audio Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>88YYY<br> <b>Version:&nbsp;</b>6.0.1.8569</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>88XXX<br> <b>Version:&nbsp;</b>6.0.8895.1</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>27N8J<br> <b>Version:&nbsp;</b>10.0.66.127</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>GG93Y<br> <b>Version:&nbsp;</b>10.0.66.148</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">chipset</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel HID Event Filter Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>779H4<br> <b>Version:&nbsp;</b>2.2.1.364</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>779H4<br> <b>Version:&nbsp;</b>2.2.1.364</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Integrated Sensor Solution Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>GHMX2<br> <b>Version:&nbsp;</b>3.10.100.4446</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>GHMX2<br> <b>Version:&nbsp;</b>3.10.100.4446</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">chipset</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Chipset Device Software</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>9NNTR<br> <b>Version:&nbsp;</b>10.1.18019.8144</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>9NNTR<br> <b>Version:&nbsp;</b>10.1.18019.8144</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">chipset</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Realtek Memory Card Reader Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>R16KJ<br> <b>Version:&nbsp;</b>10.0.17763.21313</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>R16KJ<br> <b>Version:&nbsp;</b>10.0.17763.21313</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Dynamic Tuning Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>90GWR<br> <b>Version:&nbsp;</b>8.7.10600.20700</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>90GWR<br> <b>Version:&nbsp;</b>8.7.10600.20700</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">chipset</td>
          <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Thunderbolt Controller Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>TBT79<br> <b>Version:&nbsp;</b>17.4.79.510</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>TBT79<br> <b>Version:&nbsp;</b>17.4.79.510</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">chipset</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>STMicroelectronics Free Fall Data Protection Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>DFDP5<br> <b>Version:&nbsp;</b>4.10.0079</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>DFDP5<br> <b>Version:&nbsp;</b>4.10.0079</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">chipset</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Dynamic Platform and Thermal Framework Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>74P16<br> <b>Version:&nbsp;</b>8.3.10209.6897</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>74P16<br> <b>Version:&nbsp;</b>8.3.10209.6897</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>TBT76<br> <b>Version:&nbsp;</b>1.41.1030.0</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>TBT76<br> <b>Version:&nbsp;</b>1.41.1030.0</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">chipset</td>
          <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Management Engine Components Installer</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>4C0M1<br> <b>Version:&nbsp;</b>1914.12.0.1255</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>DJT82<br> <b>Version:&nbsp;</b>1932.12.0.1298</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>VWHJV<br> <b>Version:&nbsp;</b>2110.15.0.2210</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>GH3XV<br> <b>Version:&nbsp;</b>2117.15.0.2272</td>
+         <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
+        </tr>
+        <tr>
+         <td colspan="1" rowspan="1" width="20px">x64</td>
+         <td colspan="1" rowspan="1" width="80px">chipset</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Realtek Memory Card Reader Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>1C9WW<br> <b>Version:&nbsp;</b>10.0.19041.21339</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>1C9WW<br> <b>Version:&nbsp;</b>10.0.19041.21339</td>
+         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
+        </tr>
+        <tr>
+         <td colspan="1" rowspan="1" width="20px">x64</td>
+         <td colspan="1" rowspan="1" width="80px">chipset</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Chipset Device Software</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>NNRNY<br> <b>Version:&nbsp;</b>10.1.18460.8229</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>NNRNY<br> <b>Version:&nbsp;</b>10.1.18460.8229</td>
+         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
+        </tr>
+        <tr>
+         <td colspan="1" rowspan="1" width="20px">x64</td>
+         <td colspan="1" rowspan="1" width="80px">chipset</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Serial IO Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>H6TDD<br> <b>Version:&nbsp;</b>30.100.2031.2</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>H6TDD<br> <b>Version:&nbsp;</b>30.100.2031.2</td>
+         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
+        </tr>
+        <tr>
+         <td colspan="1" rowspan="1" width="20px">x64</td>
+         <td colspan="1" rowspan="1" width="80px">communication</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Dell Wireless 5821e/Qualcomm Snapdragon X20 LTE Firmware and GNSS Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>5152F<br> <b>Version:&nbsp;</b>1.0.1.55</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>8707K<br> <b>Version:&nbsp;</b>1.0.1.59</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">communication</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>DW5811e Qualcomm Snapdragon X7 LTE Firmware and GNSS Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>97FX1<br> <b>Version:&nbsp;</b>7.54.4799.502</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>97FX1<br> <b>Version:&nbsp;</b>7.54.4799.502</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">communication</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Dell Wireless 5814E LTE Mobile Broadband Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>5C9FH<br> <b>Version:&nbsp;</b>6.2.2.2</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>5C9FH<br> <b>Version:&nbsp;</b>6.2.2.2</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">docks</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>ASIX USB to Serial/Parallel Port Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>WGNN6<br> <b>Version:&nbsp;</b>2.0.2.0</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>WGNN6<br> <b>Version:&nbsp;</b>2.0.2.0</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">docks</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>ASMedia USB eXtensible Host Controller Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>PY41V<br> <b>Version:&nbsp;</b>1.16.59.1</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>68PNM<br> <b>Version:&nbsp;</b>1.16.61.1</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Dell Wireless 5930e and Qualcomm Snapdragon SDX55 Firmware and GNSS/GPS Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>6RKKC<br> <b>Version:&nbsp;</b>1.0.0.25</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>123NJ<br> <b>Version:&nbsp;</b>1.0.0.31</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">docks</td>
          <td align="left" colspan="1" rowspan="1" width="150px"> <p>Realtek USB GBE Ethernet Controller Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>5V6RY<br> <b>Version:&nbsp;</b>2.45.2019.0618</td>
          <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>7VDGG<br> <b>Version:&nbsp;</b>2.45.2020.0601</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>PPJJC<br> <b>Version:&nbsp;</b>2.45.2021.0825</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">docks</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Realtek USB Audio Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>08CKK<br> <b>Version:&nbsp;</b>6.3.9600.2215</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>RRPCC<br> <b>Version:&nbsp;</b>6.3.9600.2250</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>DisplayLink Dock Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>VHPDW<br> <b>Version:&nbsp;</b>9.3.3324.0</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>VHPDW<br> <b>Version:&nbsp;</b>9.3.3324.0</td>
+         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">input</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Realtek IR Camera Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>15P31<br> <b>Version:&nbsp;</b>10.0.15063.11292</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>15P31<br> <b>Version:&nbsp;</b>10.0.15063.11292</td>
+         <td colspan="1" rowspan="1" width="80px">docks</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Realtek USB Audio DCH Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>CCGX7<br> <b>Version:&nbsp;</b>6.3.9600.2277</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>CCGX7<br> <b>Version:&nbsp;</b>6.3.9600.2277</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">input</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Dell Touchpad Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>772KW<br> <b>Version:&nbsp;</b>10.3201.101.213</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>2NNNK<br> <b>Version:&nbsp;</b>10.3201.101.215</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">network</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel 18265 18260 17265 WiGig Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>3CTXD<br> <b>Version:&nbsp;</b>2.0.0.11</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>3CTXD<br> <b>Version:&nbsp;</b>2.0.0.11</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel HID Event Filter Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>MDG8X<br> <b>Version:&nbsp;</b>2.2.1.384</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>MDG8X<br> <b>Version:&nbsp;</b>2.2.1.384</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">network</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Qualcomm QCA61x4A/QCA6174A-XR/QCA9377 WiFi and Bluetooth Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>4424H<br> <b>Version:&nbsp;</b>12.0.0.916</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>4424H<br> <b>Version:&nbsp;</b>12.0.0.916</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>No Change</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">network</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel 9560/9260/18265/8265/7265/3165 WiFi Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>3P529<br> <b>Version:&nbsp;</b>21.40.1.2307</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>NY7TT<br> <b>Version:&nbsp;</b>21.80.2.1</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel AX210/AX200/AX201/9560/9260/9462/8265/3165 Bluetooth UWD Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>FF17M<br> <b>Version:&nbsp;</b>22.30.0.4</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>C22GT<br> <b>Version:&nbsp;</b>22.60.2.2</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">network</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel 9560/9260/18265/8265/7265/3165 Bluetooth UWD Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>3928N<br> <b>Version:&nbsp;</b>21.40.1.1</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>198WK<br> <b>Version:&nbsp;</b>21.80.0.3</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">network</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel I2xx and 825xx Gigabit Ethernet Network Controller Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>XCNCN<br> <b>Version:&nbsp;</b>22.9.16.0</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>VP20T<br> <b>Version:&nbsp;</b>24.1.0.0</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel AX210/AX201/AX200/9560/9260/9462/8265/3165 Wi-Fi UWD Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>42VMM<br> <b>Version:&nbsp;</b>22.40.0.7</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>KX125<br> <b>Version:&nbsp;</b>22.60.1.2</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">security</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Dell ControlVault2 Driver and Firmware</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>CKGX6<br> <b>Version:&nbsp;</b>4.10.12.13</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>N23KC<br> <b>Version:&nbsp;</b>4.12.5.8</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Dell ControlVault3 Driver and Firmware</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>C3PR3<br> <b>Version:&nbsp;</b>5.5.21.63</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>1N9YK<br> <b>Version:&nbsp;</b>5.7.21.28</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">storage</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Rapid Storage Technology Driver and Management Console</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>SV16A<br> <b>Version:&nbsp;</b>16.8.3.1003</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>2PMT8<br> <b>Version:&nbsp;</b>16.8.3.1004</td>
+         <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel Rapid Storage Technology Driver</p> </td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>NKYPY<br> <b>Version:&nbsp;</b>18.1.6.1039</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>5KRPN<br> <b>Version:&nbsp;</b>18.0.3.1148</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
         <tr>
          <td colspan="1" rowspan="1" width="20px">x64</td>
          <td colspan="1" rowspan="1" width="80px">video</td>
          <td align="left" colspan="1" rowspan="1" width="150px"> <p>Intel UHD Graphics Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>977FV<br> <b>Version:&nbsp;</b>26.20.100.6888</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>P93CC<br> <b>Version:&nbsp;</b>26.20.100.8142</td>
-         <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
-        </tr>
-        <tr>
-         <td colspan="1" rowspan="1" width="20px">x64</td>
-         <td colspan="1" rowspan="1" width="80px">video</td>
-         <td align="left" colspan="1" rowspan="1" width="150px"> <p>NVIDIA GeForce/Quadro Series Graphics Driver</p> </td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>JH2P3<br> <b>Version:&nbsp;</b>26.21.14.3206</td>
-         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>KTXGW<br> <b>Version:&nbsp;</b>26.21.14.4283</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>RMYH5<br> <b>Version:&nbsp;</b>27.20.100.9510</td>
+         <td align="left" colspan="1" rowspan="1" width="130px"><b>ReleaseID:&nbsp;</b>MGFYH<br> <b>Version:&nbsp;</b>27.20.100.9749</td>
          <td align="center" colspan="1" rowspan="1" width="60px"> <p>Replaced</p> </td>
         </tr>
        </tbody>
       </table> </td>
     </tr>
    </tbody>
-  </table></div>
-        <h4 class="mb-2 content-heading">Cause</h4><div class="mb-10">Not Applicable.</div>
-        <h4 id="resolution" class="mb-2 content-heading">Resolution</h4><div class="mb-10">Not Applicable.</div>
-
+  </table></div>        
         
 </div>
                             
                             <h3 id="article-properties" class="mb-0 h4-heading">Article Properties</h3>
                             <hr class="mb-8">
-                                <h4 class="mb-2 content-heading">Product</h4>
-        <p class="mb-10 break-word-onoverflow">Latitude 5480/5488</p>
+                                <h4 class="mb-2 content-heading">Affected Product</h4>
+        <p class="mb-10 break-word-onoverflow">Laptops</p>
     <h5 class="mb-2 content-heading">Last Published Date</h5>
-    <p class="mb-10">28 Sep. 2021</p>
-    <h6 class="mb-2">Version</h6><p class="mb-10">4</p>
-    <h6 class="mb-2">Article Type</h6><p class="mb-10">Solution</p>
+    <p class="mb-10">25 Jan. 2022</p>
+    <h6 class="mb-2">Version</h6><p class="mb-10">8</p>
+    <h6 class="mb-2">Article Type</h6><p class="mb-10">How To</p>
 <script type="application/x-suppress">
     $('document').ready(function () { var seeMore = $('#hidSeeMore').val(), seeLess = $('#hidSeeLess').val();$(".seeMoreLink").on('click', function (e) { $(this).siblings('p.product-list span').toggle(); $(this).text($(this).text() == seeMore ? seeLess : seeMore); return false; }); });
 </script>
@@ -803,7 +752,7 @@
                                     <span class="align-self-center">Comments cannot contain these special characters: <>()\</span>
                                 </div>
                             </div>
-                            <input type="hidden" id="hdnArticleNumber" value="000130131">
+                            <input type="hidden" id="hdnArticleNumber" value="000184698">
                             <input type="hidden" id="hdnArticleLanguage" value="en">
                         </div>
                 </div>
