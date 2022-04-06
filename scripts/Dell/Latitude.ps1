@@ -13,6 +13,7 @@ $url_list = ($adr | Where-Object -FilterScript {$_.href -match '^.*10-driver-pac
 
 foreach ($url in $url_list)
 {
+    $url
     $cabfile = ((((Invoke-WebRequest -Uri $url -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
     $cabfile
 }
