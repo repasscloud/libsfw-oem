@@ -17,60 +17,31 @@ $ErrorActionPreference = 'Stop'
 #     $cabfile
 # }
 
-function Get-WebRequestTable()
+#(Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/000130131/latitude-5480-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing).Content | Where-Object -FilterScript {$_ -match '.*Latitude.*'}
+
+# $r = Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/000130131/latitude-5480-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing
+
+Remove-Item -Path /Users/danijel-rpc/Projects/libsfw-oem/web.txt
+
+(Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/000130131/latitude-5480-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing | Select-Object -Property Content).content | Out-File /Users/danijel-rpc/Projects/libsfw-oem/web.txt
+
+foreach($line in [System.IO.File]::ReadLines("/Users/danijel-rpc/Projects/libsfw-oem/web.txt"))
 {
-    param(
-        [Parameter(Mandatory = $true)]
-        [Microsoft.PowerShell.Commands.HtmlWebResponseObject] $WebRequest,
-    
-        [Parameter(Mandatory = $true)]
-        [int] $TableNumber
-    )
-
-    ## Extract the tables out of the web request
-    $tables = @($WebRequest.ParsedHtml.getElementsByTagName("TABLE"))
-    $table = $tables[$TableNumber]
-    $titles = @()
-    $rows = @($table.Rows)
-
-    ## Go through all of the rows in the table
-    foreach($row in $rows)
+    if ($line -cmatch '<title>Latitude.*')
     {
-        $cells = @($row.Cells)
-    
-        ## If we've found a table header, remember its titles
-        if($cells[0].tagName -eq "TH")
-        {
-            $titles = @($cells | % { ("" + $_.InnerText).Trim() })
-            continue
-        }
-
-        ## If we haven't found any table headers, make up names "P1", "P2", etc.
-        if(-not $titles)
-        {
-            $titles = @(1..($cells.Count + 2) | % { "P$_" })
-        }
-
-        ## Now go through the cells in the the row. For each, try to find the
-        ## title that represents that column and create a hashtable mapping those
-        ## titles to content
-        $resultObject = [Ordered] @{}
-        for($counter = 0; $counter -lt $cells.Count; $counter++)
-        {
-            $title = $titles[$counter]
-            if(-not $title) { continue }  
-
-            $resultObject[$title] = ("" + $cells[$counter].InnerText).Trim()
-        }
-
-        ## And finally cast that hashtable to a PSCustomObject
-        [PSCustomObject] $resultObject
+        ($line -replace '<title>','') -replace ' Windows 10.*',''
     }
 }
 
+# foreach ($line in (Get-Content -Path /Users/danijel-rpc/Projects/libsfw-oem/web.txt))
+# {
+#     if ($line -match '<title>Latitude')
+#     {
+#         $line -replace '<title>Latitude.*<\/title>',''
+#     }
+# }
 
 
 
-$r = Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/000130131/latitude-5480-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing
 
-Get-WebRequestTable $r -TableNumber 0 | Format-Table Auto
+
