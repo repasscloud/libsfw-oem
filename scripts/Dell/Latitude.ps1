@@ -36,16 +36,13 @@ foreach ($url in $url_list)
     {
         if ($line -cmatch '<td align="center" colspan="1" rowspan="1">Latitude')
         {
-            ($line -replace '.*<td align="center" colspan="1" rowspan="1">','') -replace '<.*',''
+            $model = ($line -replace '.*<td align="center" colspan="1" rowspan="1">','') -replace '<.*',''
         }
     }
 
-
-
-
-    #$cabfile
-    #$outfile
-    #$DriverVersion
+    $cabfile
+    $outfile
+    $DriverVersion
     $model
 }
 
