@@ -36,16 +36,16 @@ foreach ($url in $url_list)
     {
         if ($line -cmatch '<title>Latitude.*')
         {
-            $model = ($line -replace '<title>','') -replace ' Windows 10.*',''
+            $model = ($line -replace '<title>','') -replace ' Windows.*',''
         }
     }
 
 
 
 
-    $cabfile
-    $outfile
-    $DriverVersion
+    #$cabfile
+    #$outfile
+    #$DriverVersion
     $model
 }
 
