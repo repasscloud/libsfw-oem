@@ -32,31 +32,34 @@ foreach ($uri in $url_list)
     [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*-win10-.*\.CAB'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
     [System.String]$outFile = "${RootDir}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     
+    $cabfile
+
     <# PERFORM SECURITY SCAN #>
-    [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
-    $scanResults[0]
-    $scanResults[1]
-    $scanResults[2]
-    $scanResults[3]
-    $scanResults[4]
+    # [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
+    # $UriScanId = $scanResults[0]
+    # $suspiciousCount = $scanResults[1]
+    # $undetectedCount = $scanResults[2]
+    # $timeoutCount = $scanResults[3]
+    # $harmlessCount = $scanResults[4]
+    # $maliciousCount = $scanResults[5]
 
-    <# DOWNLOAD FILE #>
-    try
-    {
-        Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+    # <# DOWNLOAD FILE #>
+    # try
+    # {
+    #     Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
         
-        <# VERIFY DOWNLOAD #>
-        if (Test-Path -Path $outFile)
-        {
-            Remove-Item -Path $outFile -Confirm:$false -Force
-        }
-    }
-    catch
-    {
-        Write-Output "Unable to download file: ${uri}"
-    }
+    #     <# VERIFY DOWNLOAD #>
+    #     if (Test-Path -Path $outFile)
+    #     {
+    #         Remove-Item -Path $outFile -Confirm:$false -Force
+    #     }
+    # }
+    # catch
+    # {
+    #     Write-Output "Unable to download file: ${uri}"
+    # }
 
-    <# VT API RATE LIMIT #>
-    Start-Sleep -Seconds 25
+    # <# VT API RATE LIMIT #>
+    # Start-Sleep -Seconds 25
 }
 
