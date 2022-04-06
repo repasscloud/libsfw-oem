@@ -42,10 +42,46 @@ foreach ($url in $url_list)
     $directory = $model.Substring(9)
     [System.String]$outfile = "${RootDir}\Dell\Latitude\${directory}\win10\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
 
-    $cabfile
-    $outfile
-    $DriverVersion
-    $model
+    <# CREATE DIRECTORY FOR DOWNLOAD #>
+    New-Item -Path "${RootDir}\Dell\Latitude\${directory}\win10" -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
+
+    <# PERFORM SECURITY SCAN #>
+    [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
+    $UriScanId = $scanResults[0]
+    $suspiciousCount = $scanResults[1]
+    $undetectedCount = $scanResults[2]
+    $timeoutCount = $scanResults[3]
+    $harmlessCount = $scanResults[4]
+    $maliciousCount = $scanResults[5]
+
+    <# DOWNLOAD FILE #>
+    try
+    {
+        Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+        
+        <# VERIFY DOWNLOAD #>
+        if (Test-Path -Path $outFile)
+        {
+            Remove-Item -Path $outFile -Confirm:$false -Force
+        }
+    }
+    catch
+    {
+        Write-Output "Unable to download file: ${uri}"
+    }
+
+    <# VT API RATE LIMIT #>
+    Start-Sleep -Seconds 25
+    Write-Output "[CAB FILE]:       ${cabfile}"
+    Write-Output "[OUT FILE]:       ${outfile}"
+    Write-Output "[DRIVER VERSION]: ${DriverVersion}"
+    Write-Output "[MODEL]:          ${model}"
+    Write-Output "[SCAN ID]:        ${UriScanId}"
+    Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
+    Write-Output "[UNDETECTED]:     ${undetectedCount}"
+    Write-Output "[TIMEOUT]:        ${timeoutCount}"
+    Write-Output "[HARMLESS]:       ${harmlessCount}"
+    Write-Output "[MALICIOUS]:      ${maliciousCount}"
 }
 
 
@@ -86,24 +122,9 @@ foreach ($url in $url_list)
 #     # $harmlessCount = $scanResults[4]
 #     # $maliciousCount = $scanResults[5]
 
-#     # <# DOWNLOAD FILE #>
-#     # try
-#     # {
-#     #     Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
-        
-#     #     <# VERIFY DOWNLOAD #>
-#     #     if (Test-Path -Path $outFile)
-#     #     {
-#     #         Remove-Item -Path $outFile -Confirm:$false -Force
-#     #     }
-#     # }
-#     # catch
-#     # {
-#     #     Write-Output "Unable to download file: ${uri}"
-#     # }
 
-#     # <# VT API RATE LIMIT #>
-#     # Start-Sleep -Seconds 25
+
+
 # }
 
 
