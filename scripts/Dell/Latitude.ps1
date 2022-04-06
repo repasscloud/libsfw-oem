@@ -29,7 +29,7 @@ foreach ($url in $url_list)
     [System.String]$cabfile = ((($iwrObject.Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
     [System.String]$outfile = "${RootDir}\Dell\Latitude\${directory}\win10\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
     #[System.String]$DriverVersion = ($cabfile -replace '^http.*\/.*-*([A-Za-z]+)10-','') -replace '-.*',''
-    [System.String]$DriverVersion = $cabfile.Split('-')[$cabfile.Split('-').Length-1]
+    [System.String]$DriverVersion = $cabfile.Split('-')[$cabfile.Split('-').Length-2]
     if (Test-Path -Path $PSScriptRoot\web-text.txt){Remove-Item -Path $PSScriptRoot\web-text.txt -Confirm:$false -Force}
     ($iwrObject | Select-Object -Property Content).content | Out-File $PSScriptRoot\web-text.txt
     foreach($line in [System.IO.File]::ReadLines("${PSScriptRoot}\web-text.txt"))
