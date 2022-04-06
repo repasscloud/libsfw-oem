@@ -16,3 +16,18 @@ foreach ($url in $url_list)
     $cabfile = ((((Invoke-WebRequest -Uri $url -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
     $cabfile
 }
+
+
+
+$uri = 'https://www.dell.com/support/kbdoc/en-us/000182132/latitude-5520-windows-10-driver-pack'
+try
+{
+    (Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-us/000182132/latitude-5520-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
+}
+catch
+{
+    $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
+}
+$uri
+
+Invoke-WebRequest -Uri 

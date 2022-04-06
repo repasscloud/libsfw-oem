@@ -11,22 +11,26 @@ $ErrorActionPreference = 'Stop'
 $adr = (Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000109893/dell-command-deploy-driver-packs-for-latitude-models' -UserAgent $userAgent -UseBasicParsing).Links
 $url_list = ($adr | Where-Object -FilterScript {$_.href -match '^.*10-driver-pack'}).outerHTML -replace '.*(http.*-driver-pack).*','$1'
 
+<# MAIN LATITUDE DRIVERS LOOP #>
 foreach ($url in $url_list)
 {
-    $uri = $url
-    
     <# DETERMINE URI #>
     try
     {
-        (Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
+        (Invoke-WebRequest -Uri "${url}" -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
     }
     catch
     {
-        $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
+        $url = $_.Exception.Response.Headers.Location.AbsoluteUri
     }
     
-    $cabfile = ((((Invoke-WebRequest -Uri $uri -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
+    [System.String]$cabfile = ((((Invoke-WebRequest -Uri $url -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
+    [System.String]$outfile = "${RootDir}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
+    [System.String]$DriverVersion = ($cabfile -replace '^http.*\/.*-*([A-Za-z]+)10-','') -replace '-.*',''
+
     $cabfile
+    $outfile
+    $DriverVersion
 }
 
 
