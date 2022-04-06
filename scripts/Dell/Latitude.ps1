@@ -46,13 +46,13 @@ foreach ($url in $url_list)
     New-Item -Path "${RootDir}\Dell\Latitude\${directory}\win10" -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
 
     <# PERFORM SECURITY SCAN #>
-    [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
-    $UriScanId = $scanResults[0]
-    $suspiciousCount = $scanResults[1]
-    $undetectedCount = $scanResults[2]
-    $timeoutCount = $scanResults[3]
-    $harmlessCount = $scanResults[4]
-    $maliciousCount = $scanResults[5]
+    # [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
+    # $UriScanId = $scanResults[0]
+    # $suspiciousCount = $scanResults[1]
+    # $undetectedCount = $scanResults[2]
+    # $timeoutCount = $scanResults[3]
+    # $harmlessCount = $scanResults[4]
+    # $maliciousCount = $scanResults[5]
 
     <# DOWNLOAD FILE #>
     try
@@ -72,16 +72,16 @@ foreach ($url in $url_list)
 
     <# VT API RATE LIMIT #>
     Start-Sleep -Seconds 25
-    Write-Output "[CAB FILE]:       ${cabfile}"
-    Write-Output "[OUT FILE]:       ${outfile}"
-    Write-Output "[DRIVER VERSION]: ${DriverVersion}"
-    Write-Output "[MODEL]:          ${model}"
-    Write-Output "[SCAN ID]:        ${UriScanId}"
-    Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
-    Write-Output "[UNDETECTED]:     ${undetectedCount}"
-    Write-Output "[TIMEOUT]:        ${timeoutCount}"
-    Write-Output "[HARMLESS]:       ${harmlessCount}"
-    Write-Output "[MALICIOUS]:      ${maliciousCount}"
+    # Write-Output "[CAB FILE]:       ${cabfile}"
+    # Write-Output "[OUT FILE]:       ${outfile}"
+    # Write-Output "[DRIVER VERSION]: ${DriverVersion}"
+    # Write-Output "[MODEL]:          ${model}"
+    # Write-Output "[SCAN ID]:        ${UriScanId}"
+    # Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
+    # Write-Output "[UNDETECTED]:     ${undetectedCount}"
+    # Write-Output "[TIMEOUT]:        ${timeoutCount}"
+    # Write-Output "[HARMLESS]:       ${harmlessCount}"
+    # Write-Output "[MALICIOUS]:      ${maliciousCount}"
 }
 
 
