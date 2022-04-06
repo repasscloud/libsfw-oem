@@ -37,6 +37,8 @@ foreach ($uri in $url_list)
     $scanResults[0]
     $scanResults[1]
     $scanResults[2]
+    $scanResults[3]
+    $scanResults[4]
 
     <# DOWNLOAD FILE #>
     try
