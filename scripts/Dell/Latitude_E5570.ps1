@@ -37,12 +37,12 @@ catch
 
 <# PERFORM SECURITY SCAN #>
 #[System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
-$UriScanId = $scanResults[0]
-$suspiciousCount = $scanResults[1]
-$undetectedCount = $scanResults[2]
-$timeoutCount = $scanResults[3]
-$harmlessCount = $scanResults[4]
-$maliciousCount = $scanResults[5]
+# $UriScanId = $scanResults[0]
+# $suspiciousCount = $scanResults[1]
+# $undetectedCount = $scanResults[2]
+# $timeoutCount = $scanResults[3]
+# $harmlessCount = $scanResults[4]
+# $maliciousCount = $scanResults[5]
 
 <# VT API RATE LIMIT #>
 Start-Sleep -Seconds 21
@@ -63,3 +63,4 @@ Write-Output "[MALICIOUS]:      ${maliciousCount}"
 $parentpath = Split-Path -Path $outfile -Parent
 Start-Process -FilePath expand -ArgumentList "${$outfile}","-F:*","${parentpath}" -Wait
 Get-ChildItem -Path "${parentpath}\Latitude E5570"
+Get-ChildItem -Path $parentpath -Depth 3
