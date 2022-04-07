@@ -18,10 +18,10 @@ $cabfile = $iwrObject.Links | Where-Object -FilterScript {$_.href -match '.*\.ca
 [System.String]$model = 'Latitude E5570'
 
 <# CREATE DIRECTORY FOR DOWNLOAD #>
-New-Item -Path "${RootDir}\Dell\Latitude\${model}\win10" -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
+New-Item -Path "${RootDir}\Dell\Latitude\${model}\win10" -ItemType Directory -Name $model -Force -Confirm:$false | Out-Null
 
 <# REMOVE HTML FORMATTING FROM DOWNLOAD FILE STRING #>
-[System.String]$outfile = "${RootDir}\Dell\Latitude\${directory}\win10\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
+[System.String]$outfile = "${RootDir}\Dell\Latitude\${model}\win10\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
 
 <# DOWNLOAD FILE #>
 try
@@ -31,6 +31,7 @@ try
 catch
 {
     $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
+    $uri
     Invoke-WebRequest -Uri $uri -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outfile
 }
 
