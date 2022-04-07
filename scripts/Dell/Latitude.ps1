@@ -68,17 +68,28 @@ foreach ($uri in $url_list)
     try
     {
         Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+        Write-Output "Using cabfile"
     }
     catch
     {
         $dl_error_uri = $(Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile).Exception.Response.Headers.Location.AbsoluteUri
         Invoke-WebRequest -Uri $dl_error_uri -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+        Write-Output "using dl_error_uri"
     }
     
     <# VERIFY DOWNLOAD #>
     if (Test-Path -Path $outFile)
     {
-        Remove-Item -Path $outFile -Confirm:$false -Force
+        try 
+        {
+            Remove-Item -Path $outFile -Confirm:$false -Force -ErrorAction Stop
+            Write-Output "Removed file ${outFile}"
+        }
+        catch
+        {
+            Write-Output "Unable to delete file, but is matched? -> ${outFile}"
+        }
+        
     }
     Write-Output "${cabfile}"
 
