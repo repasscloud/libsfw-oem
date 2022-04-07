@@ -33,7 +33,7 @@ foreach ($uri in $url_list)
     [System.String]$cabfile = ((($iwrObject.Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*',''
     
     <# IDENTIFY DRIVER VERSION #>
-    [System.String]$DriverVersion = $cabfile.Split('-')[$cabfile.Split('-').Length-2]
+    [System.String]$driverversion = $cabfile.Split('-')[$cabfile.Split('-').Length-2]
 
     <# IDENTIFY MODEL BIOS NAME #>
     if (Test-Path -Path $PSScriptRoot\web-text.txt){Remove-Item -Path $PSScriptRoot\web-text.txt -Confirm:$false -Force}
@@ -68,13 +68,11 @@ foreach ($uri in $url_list)
     try
     {
         Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
-        Write-Output "Using cabfile"
     }
     catch
     {
         $dl_error_uri = $(Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile).Exception.Response.Headers.Location.AbsoluteUri
         Invoke-WebRequest -Uri $dl_error_uri -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
-        Write-Output "using dl_error_uri"
     }
     
     <# VERIFY DOWNLOAD #>
@@ -83,7 +81,14 @@ foreach ($uri in $url_list)
         try 
         {
             Remove-Item -Path $outFile -Confirm:$false -Force -ErrorAction Stop
-            Write-Output "Removed file ${outFile}"
+
+            <# WRITE DATA TO CONSOLE #>
+            Write-Output "[CAB FILE]:       ${cabfile}"
+            Write-Output "[OUT FILE]:       ${outfile}"
+            Write-Output "[DRIVER VERSION]: ${DriverVersion}"
+            Write-Output "[MODEL]:          ${model}"
+
+            <# UPLOAD DATA TO API #>
         }
         catch
         {
@@ -91,7 +96,6 @@ foreach ($uri in $url_list)
         }
         
     }
-    Write-Output "${cabfile}"
 
     <# VT API RATE LIMIT #>
     Start-Sleep -Seconds 2
@@ -106,48 +110,3 @@ foreach ($uri in $url_list)
     # Write-Output "[HARMLESS]:       ${harmlessCount}"
     # Write-Output "[MALICIOUS]:      ${maliciousCount}"
 }
-
-
-# <# MAIN LATITUDE DRIVERS LOOP #>
-# foreach ($uri in $url_list)
-# {    
-#     <# CREATE DIRECTORY FOR DOWNLOAD #>
-#     [System.String]$dp = ($uri -replace '^.*[0-9]{5}/','')
-#     [System.String]$directory = $dp -replace '-windows-10.*$',''
-#     New-Item -Path "${RootDir}\Dell\Latitude\win10" -ItemType Directory -Name $directory -Force -Confirm:$false | Out-Null
-
-#     <# DETERMINE URI #>
-#     try
-#     {
-#         (Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
-#     }
-#     catch
-#     {
-#         $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
-#     }
-
-#     [System.String]$cabfile = ((Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Where-Object -FilterScript {$_.href -match '^http.*-win10-.*\.CAB'} | Select-Object -First 1 | Select-Object -ExpandProperty outerHTML) -replace '.*(http.*\.CAB).*','$1'
-#     [System.String]$outFile = "${RootDir}\Dell\Latitude\win10\${directory}\$(Split-Path -Path $cabfile.Replace('%20',' ') -Leaf)"
-    
-#     [System.String]$DriverVersion = ($cabfile -replace '^http.*\/.*-*([A-Za-z]+)10-','') -replace '-.*',''
-
-#     $cabfile
-
-#     [System.String]$DriverVersion = ($cabfile -replace '^http.*\/.*-*([A-Za-z]+)10-','') -replace '-.*',''
-#     [System.String]$SupportedModel = ($cabfile -replace 'http.*/','')
-
-#     <# PERFORM SECURITY SCAN #>
-#     # [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
-#     # $UriScanId = $scanResults[0]
-#     # $suspiciousCount = $scanResults[1]
-#     # $undetectedCount = $scanResults[2]
-#     # $timeoutCount = $scanResults[3]
-#     # $harmlessCount = $scanResults[4]
-#     # $maliciousCount = $scanResults[5]
-
-
-
-
-# }
-
-
