@@ -58,8 +58,8 @@ Set-Location -Path $parentpath
 expand $outfile -F:* .
 
 <# VERIFY DRIVER VERSIONS #>
-[System.Bool]$x64 = $false
-[System.Bool]$x86 = $false
+[Bool]$x64 = $false
+[Bool]$x86 = $false
 if (Test-Path -Path .\E5570\win10\x64)
 {
     $x64 = $true
