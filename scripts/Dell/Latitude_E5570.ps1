@@ -61,6 +61,7 @@ Write-Output "[MALICIOUS]:      ${maliciousCount}"
 
 <# EXPAND CAB #>
 $parentpath = Split-Path -Path $outfile -Parent
+expand /?
 Start-Process -FilePath expand -ArgumentList "${$outfile}","-F:*","${parentpath}" -Wait
 Get-ChildItem -Path "${parentpath}\Latitude E5570"
 Get-ChildItem -Path $parentpath -Depth 3

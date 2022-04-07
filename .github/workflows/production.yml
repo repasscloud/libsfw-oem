@@ -26,11 +26,14 @@ jobs:
           API_KEY: ${{ secrets.VT_API_KEY }}
         run: |
           ./scripts/Dell/Latitude.ps1
-  Problem_Script:
-    runs-on: windows-latest
+  Latitude_E5570:
+    runs-on: windows-2019
     steps:
-    - name: Check out repo
-      uses: actions/checkout@v2
-    - name: Execute
-      run: |
-        ./execution.ps1
+      - name: Check out repo        
+        uses: actions/checkout@v2
+      - name: Execute Main Loop
+        env:
+          API_KEY: ${{ secrets.VT_API_KEY }}
+        run: |
+          ./scripts/Dell/Latitude_E5570.ps1
+
