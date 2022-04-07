@@ -36,7 +36,7 @@ catch
 }
 
 <# PERFORM SECURITY SCAN #>
-[System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
+#[System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
 $UriScanId = $scanResults[0]
 $suspiciousCount = $scanResults[1]
 $undetectedCount = $scanResults[2]
@@ -62,4 +62,4 @@ Write-Output "[MALICIOUS]:      ${maliciousCount}"
 <# EXPAND CAB #>
 $parentpath = Split-Path -Path $outfile -Parent
 Start-Process -FilePath expand -ArgumentList "${$outfile}","-F:*","${parentpath}" -Wait
-Get-ChildItem -Path $parentpath
+Get-ChildItem -Path "${parentpath}\Latitude E5570"
