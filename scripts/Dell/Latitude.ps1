@@ -12,18 +12,19 @@ $adr = (Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/0001098
 $url_list = ($adr | Where-Object -FilterScript {$_.href -match '^.*10-driver-pack'}).outerHTML -replace '.*(http.*-driver-pack).*','$1'
 
 <# MAIN LATITUDE DRIVERS LOOP #>
-foreach ($url in $url_list)
+foreach ($uri in $url_list)
 {
     <# DETERMINE URI #>
     try
     {
-        (Invoke-WebRequest -Uri "${url}" -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
+        (Invoke-WebRequest -Uri "${uri}" -UserAgent $userAgent -UseBasicParsing).Links | Out-Null
+        [System.String]$url = $uri
     }
     catch
     {
-        $url = $_.Exception.Response.Headers.Location.AbsoluteUri
+        $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
+        [System.String]$url = $uri
     }
-    
     $iwrObject = Invoke-WebRequest -Uri $url -UserAgent $userAgent -UseBasicParsing
 
     [System.String]$cabfile = (((($iwrObject.Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*','') -replace '%20',''
