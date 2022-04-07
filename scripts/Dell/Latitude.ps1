@@ -14,9 +14,6 @@ $url_list = ($adr | Where-Object -FilterScript {$_.href -match '^.*10-driver-pac
 <# MAIN LATITUDE DRIVERS LOOP #>
 foreach ($uri in $url_list)
 {
-    <# CLEAR VARIABLE DATA #>
-    [System.String]$url = [System.String]::Empty
-
     <# DETERMINE URL FROM URI #>
     try
     {
@@ -81,7 +78,7 @@ foreach ($uri in $url_list)
     catch
     {
         Write-Output "[ERROR : UNABLE TO DOWNLOAD FILE] =================+> ${$cabfile}"
-        Write-Output "[ERROR : FROM URL] ================================+> ${$cabfile}"
+        Write-Output "[ERROR : FROM URL] ================================+> ${$uri}"
     }
 
     <# VT API RATE LIMIT #>
