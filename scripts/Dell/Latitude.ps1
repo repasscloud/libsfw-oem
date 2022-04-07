@@ -74,9 +74,11 @@ foreach ($uri in $url_list)
         {
             Remove-Item -Path $outFile -Confirm:$false -Force
         }
+        Write-Output "${cabfile}"
     }
     catch
     {
+
         Write-Output "[ERROR : UNABLE TO DOWNLOAD FILE] =================+> ${$cabfile}"
         Write-Output "[ERROR : FROM URL] ================================+> ${$uri}"
     }
