@@ -31,6 +31,9 @@ function Complete-UrlVTScan {
         $output = $response.Content | ConvertFrom-Json
         $analysisId = $output.data.id   # return data captured
 
+        <# ALLOW API TO CATCH UP #>
+        Start-Sleep -Seconds 3
+
         <# ENCODE URL TO SCAN TO BASE64 #>
         $readableText = "${URL}"
         $encodedBytes = [System.Text.Encoding]::UTF8.GetBytes($readableText)
