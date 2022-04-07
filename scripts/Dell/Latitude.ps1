@@ -71,7 +71,7 @@ foreach ($url in $url_list)
     }
 
     <# VT API RATE LIMIT #>
-    Start-Sleep -Seconds 25
+    Start-Sleep -Seconds 2
     # Write-Output "[CAB FILE]:       ${cabfile}"
     # Write-Output "[OUT FILE]:       ${outfile}"
     # Write-Output "[DRIVER VERSION]: ${DriverVersion}"
