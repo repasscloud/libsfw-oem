@@ -5,7 +5,7 @@ $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 $ErrorActionPreference = 'Stop'
 
 <# LOAD FUNCTIONS #>
-. $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
+#. $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
 
 <# WINDOWS 10 DELL LATITUDE DRIVERS #>
 $adr = (Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000109893/dell-command-deploy-driver-packs-for-latitude-models' -UserAgent $userAgent -UseBasicParsing).Links
