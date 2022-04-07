@@ -36,7 +36,6 @@ try
 catch
 {
     $uri = $_.Exception.Response.Headers.Location.AbsoluteUri
-    $uri
     Invoke-WebRequest -Uri $uri -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outfile
 }
 
@@ -63,24 +62,42 @@ expand $outfile -F:* .
 [Bool]$x86 = $false
 if (Test-Path -Path .\E5570\win10\x64)
 {
-    $x64 = $true
+    [System.Boolean]$x64 = $true
 }
 if (Test-Path -Path .\E5570\win10\x86)
 {
-    $x86 = $true
+    [System.Boolean]$x86 = $true
+}
+if ($x64 -and $x86)
+{
+    [System.String]$arch = "x86_64"
+}
+elseif ($x64)
+{
+    [System.String]$arch = "x64"
+}
+else
+{
+    [System.String]$arch = "x86"
 }
 
+
 <# DATA PAYLOAD #>
-Write-Output "[CAB FILE]:       ${cabfile}"
-Write-Output "[OUT FILE]:       ${outfile}"
-Write-Output "[DRIVER VERSION]: ${DriverVersion}"
+Write-Output "[UUID]:           $([System.Guid]::NewGuid().Guid)"
+Write-Output "[UID]:            ${manufacturer}::${make}::${model}::${arch}"
 Write-Output "[MANUFACTURER]:   ${manufacturer}"
 Write-Output "[MAKE]:           ${make}"
 Write-Output "[MODEL]:          $($model.Replace('Latitude ',''))"
-Write-Output "[INSTALL CLASS]:  ${installclass}"
+Write-Output "[CSP VERSION]:    ${cspversion}"
+Write-Output "[CSP NAME]:       ${cspname}"
+Write-Output "[DRIVER VERSION]: ${DriverVersion}"
+Write-Output "[OEM INSTALLER]:  ${oeminstallclass}"
 Write-Output "[X64 SUPPORT]:    ${x64}"
 Write-Output "[X86 SUPPORT]:    ${x86}"
-Write-Output "[OEM INSTALLER]:  ${oeminstallclass}"
+Write-Output "[CAB FILE]:       ${cabfile}"
+Write-Output "[OUT FILE]:       ${outfile}"
+Write-Output "[LATEST]:         $($true)"
+Write-Output "[LAST UPDATE]:    $((Get-Date).ToString('yyyyMMdd'))"
 Write-Output "[SCAN ID]:        ${UriScanId}"
 Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
 Write-Output "[UNDETECTED]:     ${undetectedCount}"
