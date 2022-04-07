@@ -10,6 +10,7 @@ $ErrorActionPreference = 'Stop'
 <# SET VARIABLES #>
 [System.String]$manufacturer = "Dell"
 [System.String]$make = "Latitude"
+[System.String]$oeminstallclass = "Dell_cabfile"
 
 <# LATITUDE E5570 WINDOWS 10 DRIVERS #>
 $iwrObject = Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000108641/latitude-e5570-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing
@@ -79,6 +80,7 @@ Write-Output "[MODEL]:          $($model.Replace('Latitude ',''))"
 Write-Output "[INSTALL CLASS]:  ${installclass}"
 Write-Output "[X64 SUPPORT]:    ${x64}"
 Write-Output "[X86 SUPPORT]:    ${x86}"
+Write-Output "[OEM INSTALLER]:  ${oeminstallclass}"
 Write-Output "[SCAN ID]:        ${UriScanId}"
 Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
 Write-Output "[UNDETECTED]:     ${undetectedCount}"
