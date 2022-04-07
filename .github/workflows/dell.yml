@@ -27,7 +27,7 @@ jobs:
         run: |
           ./scripts/Dell/Latitude.ps1
   Problem_Script:
-    runs-on: windows-2016
+    runs-on: windows-latest
     steps:
     - name: Check out repo
       uses: actions/checkout@v2
