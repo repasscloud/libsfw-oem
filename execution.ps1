@@ -24,3 +24,4 @@ $iwrObject = Invoke-WebRequest -Uri $url -UserAgent $userAgent -UseBasicParsing
 $outFile = "${PSScriptRoot}\test-download.dl"
 [System.String]$cabfile = (((($iwrObject.Links | Where-Object -FilterScript {$_ -match '.*Download Now.*'}).outerHTML | Select-Object -First 1) -replace '^.*href="','') -replace '".*','') # -replace '%20',''
 Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+Test-Path -Path $outFile
