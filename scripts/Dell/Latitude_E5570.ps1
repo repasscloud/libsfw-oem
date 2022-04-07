@@ -7,6 +7,10 @@ $ErrorActionPreference = 'Stop'
 <# LOAD FUNCTIONS #>
 . $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
 
+<# SET VARIABLES #>
+[System.String]$manufacturer = "Dell"
+[System.String]$make = "Latitude"
+
 <# LATITUDE E5570 WINDOWS 10 DRIVERS #>
 $iwrObject = Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000108641/latitude-e5570-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing
 
@@ -47,11 +51,31 @@ catch
 <# VT API RATE LIMIT #>
 Start-Sleep -Seconds 21
 
+<# EXPAND CAB #>
+$parentpath = Split-Path -Path $outfile -Parent
+Push-Location
+Set-Location -Path $parentpath
+expand $outfile -F:* .
+
+<# VERIFY DRIVER VERSIONS #>
+[System.Bool]$x64 = $false
+[System.Bool]$x86 = $false
+if (Test-Path -Path .\E5570\win10\x64)
+{
+    $x64 = $true
+}
+if (Test-Path -Path .\E5570\win10\x86)
+{
+    $x86 = $true
+}
+
 <# DATA PAYLOAD #>
 Write-Output "[CAB FILE]:       ${cabfile}"
 Write-Output "[OUT FILE]:       ${outfile}"
 Write-Output "[DRIVER VERSION]: ${DriverVersion}"
-Write-Output "[MODEL]:          ${model}"
+Write-Output "[MANUFACTURER]:   ${manufacturer}"
+Write-Output "[MAKE]:           ${make}"
+Write-Output "[MODEL]:          $($model.Replace('Latitude ',''))"
 Write-Output "[SCAN ID]:        ${UriScanId}"
 Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
 Write-Output "[UNDETECTED]:     ${undetectedCount}"
@@ -59,17 +83,6 @@ Write-Output "[TIMEOUT]:        ${timeoutCount}"
 Write-Output "[HARMLESS]:       ${harmlessCount}"
 Write-Output "[MALICIOUS]:      ${maliciousCount}"
 
-<# EXPAND CAB #>
-$parentpath = Split-Path -Path $outfile -Parent
-Push-Location
-Set-Location -Path $parentpath
-expand $outfile -F:* .
-if (Test-Path -Path .\E5570\win10\x64)
-{
-    "X64 BIT DRIVERS"
-}
-if (Test-Path -Path .\E5570\win10\x86)
-{
-    "X86 BIT DRIVERS"
-}
+<# CLEAN UP #>
 Pop-Location
+[System.GC]::Collect()
