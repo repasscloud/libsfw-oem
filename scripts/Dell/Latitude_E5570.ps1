@@ -64,11 +64,11 @@ $parentpath = Split-Path -Path $outfile -Parent
 Push-Location
 Set-Location -Path $parentpath
 expand $outfile -F:* .
-if (Test-Path -Path .\E5570\x64)
+if (Test-Path -Path .\E5570\win10\x64)
 {
     "X64 BIT DRIVERS"
 }
-if (Test-Path -Path .\E5570\x86)
+if (Test-Path -Path .\E5570\win10\x86)
 {
     "X86 BIT DRIVERS"
 }
