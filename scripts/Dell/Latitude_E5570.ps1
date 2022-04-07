@@ -64,5 +64,12 @@ $parentpath = Split-Path -Path $outfile -Parent
 Push-Location
 Set-Location -Path $parentpath
 expand $outfile -F:* .
-Get-ChildItem -Path . -Recurse
+if (Test-Path -Path .\E5570\x64)
+{
+    "X64 BIT DRIVERS"
+}
+if (Test-Path -Path .\E5570\x86)
+{
+    "X86 BIT DRIVERS"
+}
 Pop-Location
