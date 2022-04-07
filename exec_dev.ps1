@@ -69,14 +69,14 @@ foreach ($uri in $url_list)
         <# DOWNLOAD FILE #>
         try
         {
-            Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+            Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outfile -ErrorAction Stop
         }
         catch
         {
-            $dl_error_uri = $(Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile).Exception.Response.Headers.Location.AbsoluteUri
+            $dl_error_uri = $(Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outfile).Exception.Response.Headers.Location.AbsoluteUri
             Write-Output "Error in Download: ${dl_error_uri}"
         }
 
-        Test-Path -Path $outFile
+        Test-Path -Path $outfile
     }
 }
