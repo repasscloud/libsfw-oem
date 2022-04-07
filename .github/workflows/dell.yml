@@ -26,3 +26,11 @@ jobs:
           API_KEY: ${{ secrets.VT_API_KEY }}
         run: |
           ./scripts/Dell/Latitude.ps1
+  Problem_Script:
+    runs-on: windows-2016
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+    - name: Execute
+      run: |
+        ./execution.ps1
