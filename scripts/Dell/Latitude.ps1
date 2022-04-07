@@ -68,20 +68,19 @@ foreach ($uri in $url_list)
     try
     {
         Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
-        
-        <# VERIFY DOWNLOAD #>
-        if (Test-Path -Path $outFile)
-        {
-            Remove-Item -Path $outFile -Confirm:$false -Force
-        }
-        Write-Output "${cabfile}"
     }
     catch
     {
-
-        Write-Output "[ERROR : UNABLE TO DOWNLOAD FILE] =================+> ${$cabfile}"
-        Write-Output "[ERROR : FROM URL] ================================+> ${$uri}"
+        $dl_error_uri = $(Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile).Exception.Response.Headers.Location.AbsoluteUri
+        Invoke-WebRequest -Uri $dl_error_uri -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
     }
+    
+    <# VERIFY DOWNLOAD #>
+    if (Test-Path -Path $outFile)
+    {
+        Remove-Item -Path $outFile -Confirm:$false -Force
+    }
+    Write-Output "${cabfile}"
 
     <# VT API RATE LIMIT #>
     Start-Sleep -Seconds 2
