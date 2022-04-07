@@ -57,30 +57,30 @@ foreach ($uri in $url_list)
 
     <# PERFORM SECURITY SCAN #>
     # [System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
-    # $UriScanId = $scanResults[0]
-    # $suspiciousCount = $scanResults[1]
-    # $undetectedCount = $scanResults[2]
-    # $timeoutCount = $scanResults[3]
-    # $harmlessCount = $scanResults[4]
-    # $maliciousCount = $scanResults[5]
+    $UriScanId = $scanResults[0]
+    $suspiciousCount = $scanResults[1]
+    $undetectedCount = $scanResults[2]
+    $timeoutCount = $scanResults[3]
+    $harmlessCount = $scanResults[4]
+    $maliciousCount = $scanResults[5]
 
     <# DOWNLOAD FILE #>
     try
     {
-        Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+        Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outfile -ErrorAction Stop
     }
     catch
     {
-        $dl_error_uri = $(Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile).Exception.Response.Headers.Location.AbsoluteUri
-        Invoke-WebRequest -Uri $dl_error_uri -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outFile -ErrorAction Stop
+        $dl_error_uri = $(Invoke-WebRequest -Uri $cabfile -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outfile).Exception.Response.Headers.Location.AbsoluteUri
+        Invoke-WebRequest -Uri $dl_error_uri -UseBasicParsing -UserAgent $userAgent -ContentType 'application/zip' -OutFile $outfile -ErrorAction Stop
     }
     
     <# VERIFY DOWNLOAD #>
-    if (Test-Path -Path $outFile)
+    if (Test-Path -Path $outfile)
     {
         try 
         {
-            Remove-Item -Path $outFile -Confirm:$false -Force -ErrorAction Stop
+            Remove-Item -Path $outfile -Confirm:$false -Force -ErrorAction Stop
 
             <# WRITE DATA TO CONSOLE #>
             Write-Output "[CAB FILE]:       ${cabfile}"
@@ -98,15 +98,17 @@ foreach ($uri in $url_list)
     }
 
     <# VT API RATE LIMIT #>
-    Start-Sleep -Seconds 2
-    # Write-Output "[CAB FILE]:       ${cabfile}"
-    # Write-Output "[OUT FILE]:       ${outfile}"
-    # Write-Output "[DRIVER VERSION]: ${DriverVersion}"
-    # Write-Output "[MODEL]:          ${model}"
-    # Write-Output "[SCAN ID]:        ${UriScanId}"
-    # Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
-    # Write-Output "[UNDETECTED]:     ${undetectedCount}"
-    # Write-Output "[TIMEOUT]:        ${timeoutCount}"
-    # Write-Output "[HARMLESS]:       ${harmlessCount}"
-    # Write-Output "[MALICIOUS]:      ${maliciousCount}"
+    Start-Sleep -Seconds 21
+
+    <# DATA PAYLOAD #>
+    Write-Output "[CAB FILE]:       ${cabfile}"
+    Write-Output "[OUT FILE]:       ${outfile}"
+    Write-Output "[DRIVER VERSION]: ${DriverVersion}"
+    Write-Output "[MODEL]:          ${model}"
+    Write-Output "[SCAN ID]:        ${UriScanId}"
+    Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
+    Write-Output "[UNDETECTED]:     ${undetectedCount}"
+    Write-Output "[TIMEOUT]:        ${timeoutCount}"
+    Write-Output "[HARMLESS]:       ${harmlessCount}"
+    Write-Output "[MALICIOUS]:      ${maliciousCount}"
 }
