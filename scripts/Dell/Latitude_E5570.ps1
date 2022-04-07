@@ -11,6 +11,8 @@ $ErrorActionPreference = 'Stop'
 [System.String]$manufacturer = "Dell"
 [System.String]$make = "Latitude"
 [System.String]$oeminstallclass = "Dell_cabfile"
+[System.String]$cspversion = [System.String]::Empty
+[System.String]$cspname = [System.String]::Empty
 
 <# LATITUDE E5570 WINDOWS 10 DRIVERS #>
 $iwrObject = Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000108641/latitude-e5570-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing
@@ -84,13 +86,13 @@ else
 
 <# DATA PAYLOAD #>
 Write-Output "[UUID]:           $([System.Guid]::NewGuid().Guid)"
-Write-Output "[UID]:            ${manufacturer}::${make}::${model}::${arch}"
+Write-Output "[UID]:            ${manufacturer}::${make}::${model}::${arch}::${driverversion}"
 Write-Output "[MANUFACTURER]:   ${manufacturer}"
 Write-Output "[MAKE]:           ${make}"
 Write-Output "[MODEL]:          $($model.Replace('Latitude ',''))"
 Write-Output "[CSP VERSION]:    ${cspversion}"
 Write-Output "[CSP NAME]:       ${cspname}"
-Write-Output "[DRIVER VERSION]: ${DriverVersion}"
+Write-Output "[DRIVER VERSION]: ${driverversion}"
 Write-Output "[OEM INSTALLER]:  ${oeminstallclass}"
 Write-Output "[X64 SUPPORT]:    ${x64}"
 Write-Output "[X86 SUPPORT]:    ${x86}"
