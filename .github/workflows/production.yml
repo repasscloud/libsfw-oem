@@ -5,7 +5,7 @@ name: Production
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: 15 0-23 * * *
+    - cron: "15 0-23 * * *"
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ main ]
@@ -21,7 +21,7 @@ jobs:
   Latitude_Drivers:
     runs-on: windows-2019
     steps:
-      - name: Check out repo        
+      - name: Check out repo
         uses: actions/checkout@v2
       - name: Execute Main Loop
         env:
@@ -38,4 +38,3 @@ jobs:
           API_KEY: ${{ secrets.VT_API_KEY }}
         run: |
           ./scripts/Dell/Latitude_E5570.ps1
-
