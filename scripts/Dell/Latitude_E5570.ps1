@@ -126,13 +126,15 @@ $Body = @{
     uri = "${cabfile}"
     outFile = "$(Split-Path -Path $outfile -Leaf)"
     latest = $true
-    lastUpdate = ((Get-Date).ToString('yyyyMMdd'))
+    lastUpdate = $((Get-Date).ToString('yyyyMMdd'))
     urlVTScan = $UriScanId
     exploidReportId = 0
     notes = "${notes}"
 } | ConvertTo-Json
 try {
-    Invoke-RestMethod -Uri "${BaseUri}/api/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
+    "${BaseUri}/api/Drivers"
+    $Body
+    #Invoke-RestMethod -Uri "${BaseUri}/api/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
 }
 catch {
     $_.Exception.Message
