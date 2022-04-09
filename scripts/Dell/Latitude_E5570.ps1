@@ -4,6 +4,7 @@ $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 [System.String]$RootDir = Split-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -Parent
 $ErrorActionPreference = 'Stop'
 [System.String]$BaseUri = $env:BASE_URI
+[System.String]$oem = "Dell"
 [System.String]$notes = "Latitude E5570 is created independantly of main Latitude script."
 
 <# LOAD FUNCTIONS #>
@@ -111,25 +112,25 @@ Write-Output "[MALICIOUS]:      ${maliciousCount}"
 
 <# POST DATA TO API #>
 $Body = @{
-    id = 0
-    uuid = [System.Guid]::NewGuid().Guid.ToString()
-    uid = "${manufacturer}::${make}::${model}::${arch}::${driverversion}"
-    originalEquipmentManufacturer = 
-    make = "${make}"
-    model = "$($model.Replace('Latitude ',''))"
-    cspVersion = "${cspversion}"
-    cspName = "${cspname}"
-    version = "${driverversion}"
-    oeminstallClass = "${oeminstallclass}"
-    x64 = $x64
-    x86 = $x86
-    uri = "${cabfile}"
-    outFile = "$(Split-Path -Path $outfile -Leaf)"
-    latest = $true
-    lastUpdate = $((Get-Date).ToString('yyyyMMdd'))
-    urlVTScan = $UriScanId
-    exploidReportId = 0
-    notes = "${notes}"
+    'id' = 0
+    'uuid' = [System.Guid]::NewGuid().Guid.ToString()
+    'uid' = "${manufacturer}::${make}::${model}::${arch}::${driverversion}"
+    'originalEquipmentManufacturer' = "${oem}"
+    'make' = "${make}"
+    'model' = "$($model.Replace('Latitude ',''))"
+    'cspVersion' = "${cspversion}"
+    'cspName' = "${cspname}"
+    'version' = "${driverversion}"
+    'oeminstallClass' = "${oeminstallclass}"
+    'x64' = $x64
+    'x86' = $x86
+    'uri' = "${cabfile}"
+    'outFile' = "$(Split-Path -Path $outfile -Leaf)"
+    'latest' = $true
+    'lastUpdate' = $((Get-Date).ToString('yyyyMMdd'))
+    'urlVTScan' = $UriScanId
+    'exploidReportId' = 0
+    'notes' = "${notes}"
 } | ConvertTo-Json
 try {
     "${BaseUri}/api/Drivers"
