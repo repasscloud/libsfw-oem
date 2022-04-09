@@ -133,7 +133,7 @@ $Body = @{
     'notes' = "${notes}"
 } | ConvertTo-Json
 try {
-    Invoke-RestMethod -Uri "${BaseUri}/api/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
+    Invoke-RestMethod -Uri "https://engine.api.dev.optechx-data.com/api/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
 }
 catch {
     $_.Exception.Message
