@@ -3,6 +3,8 @@
 $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 [System.String]$RootDir = Split-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -Parent
 $ErrorActionPreference = 'Stop'
+[System.String]$BaseUri = $env:BASE_URI
+[System.String]$notes = "Latitude E5570 is created independantly of main Latitude script."
 
 <# LOAD FUNCTIONS #>
 . $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
@@ -42,13 +44,13 @@ catch
 }
 
 <# PERFORM SECURITY SCAN #>
-#[System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
-# $UriScanId = $scanResults[0]
-# $suspiciousCount = $scanResults[1]
-# $undetectedCount = $scanResults[2]
-# $timeoutCount = $scanResults[3]
-# $harmlessCount = $scanResults[4]
-# $maliciousCount = $scanResults[5]
+[System.String[]]$scanResults = Complete-UrlVTScan -Uri $cabfile -ApiKey $env:API_KEY
+$UriScanId = $scanResults[0]
+$suspiciousCount = $scanResults[1]
+$undetectedCount = $scanResults[2]
+$timeoutCount = $scanResults[3]
+$harmlessCount = $scanResults[4]
+$maliciousCount = $scanResults[5]
 
 <# VT API RATE LIMIT #>
 Start-Sleep -Seconds 21
@@ -106,6 +108,35 @@ Write-Output "[UNDETECTED]:     ${undetectedCount}"
 Write-Output "[TIMEOUT]:        ${timeoutCount}"
 Write-Output "[HARMLESS]:       ${harmlessCount}"
 Write-Output "[MALICIOUS]:      ${maliciousCount}"
+
+<# POST DATA TO API #>
+$Body = @{
+    id = 0
+    uuid = [System.Guid]::NewGuid().Guid.ToString()
+    uid = "${manufacturer}::${make}::${model}::${arch}::${driverversion}"
+    originalEquipmentManufacturer = 
+    make = "${make}"
+    model = "$($model.Replace('Latitude ',''))"
+    cspVersion = "${cspversion}"
+    cspName = "${cspname}"
+    version = "${driverversion}"
+    oeminstallClass = "${oeminstallclass}"
+    x64 = "${x64}"
+    x86 = "${x86}"
+    uri = "${cabfile}"
+    outFile = "$(Split-Path -Path $outfile -Leaf)"
+    latest = $true
+    lastUpdate = ((Get-Date).ToString('yyyyMMdd'))
+    urlVTScan = $UriScanId
+    exploidReportId = 0
+    notes = "${notes}"
+} | ConvertTo-Json
+try {
+    Invoke-RestMethod -Uri "${BaseUri}/api/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
+}
+catch {
+    $_.Exception.Message
+}
 
 <# CLEAN UP #>
 Pop-Location
