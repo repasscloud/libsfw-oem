@@ -6,6 +6,9 @@ $ErrorActionPreference = 'Stop'
 [System.String]$BaseUri = $env:BASE_URI
 [System.String]$oem = "Dell"
 [System.String]$notes = "Latitude E5570 is created independantly of main Latitude script."
+[System.String]$winver = "Windows_10"
+[System.String]$biosVersion = [System.String]::Empty
+[System.Int32]$productionYear = 1900
 
 <# LOAD FUNCTIONS #>
 . $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
@@ -63,52 +66,55 @@ Set-Location -Path $parentpath
 expand $outfile -F:* .
 
 <# VERIFY DRIVER VERSIONS #>
-[Bool]$x64 = $false
-[Bool]$x86 = $false
+[System.String[]]$cpuArch = @()
+[System.Boolean]$x64 = $false
+[System.Boolean]$x86 = $false
+[System.Boolean]$arm64 = $false
+[System.Boolean]$aarch32 = $false
 if (Test-Path -Path .\E5570\win10\x64)
 {
     [System.Boolean]$x64 = $true
+    $cpuArch += "x64"
 }
 if (Test-Path -Path .\E5570\win10\x86)
 {
     [System.Boolean]$x86 = $true
+    $cpuArch += "x64"
 }
-if ($x64 -and $x86)
+if (Test-Path -Path .\E5570\win10\arm64)
 {
-    [System.String]$arch = "x86_64"
+    [System.Boolean]$arm64 = $true
+    $cpuArch += "arm64"
 }
-elseif ($x64)
+if (Test-Path -Path .\E5570\win10\aarch32)
 {
-    [System.String]$arch = "x64"
-}
-else
-{
-    [System.String]$arch = "x86"
+    [System.Boolean]$aarch32 = $true
+    $cpuArch += "aarch32"
 }
 
 
 <# DATA PAYLOAD #>
-Write-Output "[UUID]:           $([System.Guid]::NewGuid().Guid)"
-Write-Output "[UID]:            ${manufacturer}::${make}::${model}::${arch}::${driverversion}"
-Write-Output "[MANUFACTURER]:   ${manufacturer}"
-Write-Output "[MAKE]:           ${make}"
-Write-Output "[MODEL]:          $($model.Replace('Latitude ',''))"
-Write-Output "[CSP VERSION]:    ${cspversion}"
-Write-Output "[CSP NAME]:       ${cspname}"
-Write-Output "[DRIVER VERSION]: ${driverversion}"
-Write-Output "[OEM INSTALLER]:  ${oeminstallclass}"
-Write-Output "[X64 SUPPORT]:    ${x64}"
-Write-Output "[X86 SUPPORT]:    ${x86}"
-Write-Output "[CAB FILE]:       ${cabfile}"
-Write-Output "[OUT FILE]:       ${outfile}"
-Write-Output "[LATEST]:         $($true)"
-Write-Output "[LAST UPDATE]:    $((Get-Date).ToString('yyyyMMdd'))"
-Write-Output "[SCAN ID]:        ${UriScanId}"
-Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
-Write-Output "[UNDETECTED]:     ${undetectedCount}"
-Write-Output "[TIMEOUT]:        ${timeoutCount}"
-Write-Output "[HARMLESS]:       ${harmlessCount}"
-Write-Output "[MALICIOUS]:      ${maliciousCount}"
+# Write-Output "[UUID]:           $([System.Guid]::NewGuid().Guid)"
+# Write-Output "[UID]:            ${manufacturer}::${make}::${model}::${arch}::${driverversion}"
+# Write-Output "[MANUFACTURER]:   ${manufacturer}"
+# Write-Output "[MAKE]:           ${make}"
+# Write-Output "[MODEL]:          $($model.Replace('Latitude ',''))"
+# Write-Output "[CSP VERSION]:    ${cspversion}"
+# Write-Output "[CSP NAME]:       ${cspname}"
+# Write-Output "[DRIVER VERSION]: ${driverversion}"
+# Write-Output "[OEM INSTALLER]:  ${oeminstallclass}"
+# Write-Output "[X64 SUPPORT]:    ${x64}"
+# Write-Output "[X86 SUPPORT]:    ${x86}"
+# Write-Output "[CAB FILE]:       ${cabfile}"
+# Write-Output "[OUT FILE]:       ${outfile}"
+# Write-Output "[LATEST]:         $($true)"
+# Write-Output "[LAST UPDATE]:    $((Get-Date).ToString('yyyyMMdd'))"
+# Write-Output "[SCAN ID]:        ${UriScanId}"
+# Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
+# Write-Output "[UNDETECTED]:     ${undetectedCount}"
+# Write-Output "[TIMEOUT]:        ${timeoutCount}"
+# Write-Output "[HARMLESS]:       ${harmlessCount}"
+# Write-Output "[MALICIOUS]:      ${maliciousCount}"
 
 <# POST DATA TO API #>
 $Body = @{
@@ -121,15 +127,21 @@ $Body = @{
     'cspVersion' = "${cspversion}"
     'cspName' = "${cspname}"
     'version' = "${driverversion}"
+    'biosVersion' = "${biosVersion}"
+    'productionYear' = $productionYear
+    'cpuArch' = $cpuArch
     'oeminstallClass' = "${oeminstallclass}"
     'x64' = $x64
     'x86' = $x86
+    'arm64' = $arm64
+    'aarch32' = $aarch32
     'uri' = "${cabfile}"
     'outFile' = "$(Split-Path -Path $outfile -Leaf)"
     'latest' = $true
     'lastUpdate' = $((Get-Date).ToString('yyyyMMdd'))
+    'driverWinVer' = $winver
     'urlVTScan' = $UriScanId
-    'exploidReportId' = 0
+    'exploidReportId' = 1
     'notes' = "${notes}"
 } | ConvertTo-Json
 try {
