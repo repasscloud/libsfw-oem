@@ -141,7 +141,7 @@ $Body = @{
     'lastUpdate' = $((Get-Date).ToString('yyyyMMdd'))
     'driverWinVer' = $winver
     'urlVTScan' = $UriScanId
-    'exploidReportId' = 1
+    'exploitReportId' = 1
     'notes' = "${notes}"
 } | ConvertTo-Json
 try {
