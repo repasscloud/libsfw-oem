@@ -1,0 +1,18 @@
+name: "Development"
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+  workflow_dispatch:
+
+jobs:
+  Problem-Script:
+    runs-on: windows-2019
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+    - name: Execute
+      run: |
+        ./exec_dev.ps1
