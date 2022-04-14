@@ -9,6 +9,8 @@ on:
     branches: [ dell-latitude-5570 ]
   pull_request:
     branches: [ dell-latitude-5570 ]
+  schedule:
+    - cron: '23 0 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
