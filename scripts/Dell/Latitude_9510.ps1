@@ -29,7 +29,7 @@ $cabfile = $iwrObject.Links | Where-Object -FilterScript {$_.href -match '.*\.ca
 
 <# IDENTIFY DRIVER VERSION #>
 [System.String]$driverversion = $cabfile.Split('-')[$cabfile.Split('-').Length-2]
-[System.String]$model = 'Latitude 9250'
+[System.String]$model = 'Latitude 9510'
 
 <# CREATE DIRECTORY FOR DOWNLOAD #>
 New-Item -Path "${RootDir}\Dell\Latitude\${model}\win10" -ItemType Directory -Name $model -Force -Confirm:$false | Out-Null
