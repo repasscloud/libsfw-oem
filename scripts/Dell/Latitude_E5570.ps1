@@ -167,5 +167,6 @@ else
 }
 
 <# CLEAN UP #>
+Remove-Item -Path .\E5570 -Recurse -Force -Confirm:$false
 Pop-Location
 [System.GC]::Collect()
