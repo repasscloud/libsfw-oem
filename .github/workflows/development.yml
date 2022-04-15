@@ -40,3 +40,14 @@ jobs:
           API_KEY: ${{ secrets.VT_API_KEY }}
         run: |
           ./scripts/Dell/Latitude_9520.ps1
+  Latitude_9510:
+    runs-on: windows-2019
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v2
+      - name: Execute Main Loop
+        env:
+          BASE_URI: ${{ secrets.DEV_ENGINE_API_URI }}
+          API_KEY: ${{ secrets.VT_API_KEY }}
+        run: |
+          ./scripts/Dell/Latitude_9510.ps1
