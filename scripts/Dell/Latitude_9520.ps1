@@ -155,7 +155,7 @@ Write-Output "[NOTES]:              $($Body | ConvertFrom-Json | Select-Object -
 
 <# INJECT DATA #>
 try {
-    $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/2" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+    $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/3" -Headers $Headers -Method Get).Content | ConvertFrom-Json
     $ApiQueryCount = $ApiVerifyResult.id.Count
 }
 catch {
