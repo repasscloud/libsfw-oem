@@ -149,7 +149,13 @@ $Body = @{
     'exploitReportId' = 1
     'notes' = "${notes}"
 } | ConvertTo-Json
-$ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/1" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+$Body
+try {
+    $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/1" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+}
+catch {
+    $ApiVerifyResult = 0
+}
 if ($ApiVerifyResult.id.Count -lt 1 -or $ApiVerifyResult.id.Count -gt 1)
 {
     try

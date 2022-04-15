@@ -150,7 +150,12 @@ $Body = @{
     'notes' = "${notes}"
 } | ConvertTo-Json
 $Body
-$ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/2" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+try {
+    $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/2" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+}
+catch {
+    $ApiVerifyResult = 0
+}
 if ($ApiVerifyResult.id.Count -lt 1 -or $ApiVerifyResult.id.Count -gt 1)
 {
     try
