@@ -64,7 +64,7 @@ Start-Sleep -Seconds 21
 $parentpath = Split-Path -Path $outfile -Parent
 Push-Location
 Set-Location -Path $parentpath
-expand $outfile -F:* . | Out-Null
+expand $outfile -F:* .
 
 <# VERIFY DRIVER VERSIONS #>
 [System.String]$archUID = [System.String]::Empty
@@ -178,6 +178,5 @@ else
 }
 
 <# CLEAN UP #>
-Remove-Item -Path .\9510 -Recurse -Force -Confirm:$false
 Pop-Location
 [System.GC]::Collect()
