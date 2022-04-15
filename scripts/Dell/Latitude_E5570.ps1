@@ -152,11 +152,12 @@ $Body = @{
 $Body
 try {
     $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/1" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+    $ApiQueryCount = $ApiVerifyResult.id.Count
 }
 catch {
-    $ApiVerifyResult = 0
+    $ApiQueryCount = 0
 }
-if ($ApiVerifyResult.id.Count -lt 1 -or $ApiVerifyResult.id.Count -gt 1)
+if ($ApiQueryCount -lt 1 -or $ApiQueryCount -gt 1)
 {
     try
     {
