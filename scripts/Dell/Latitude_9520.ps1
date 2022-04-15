@@ -161,7 +161,7 @@ if ($ApiQueryCount -lt 1 -or $ApiQueryCount -gt 1)
 {
     try
     {
-        Invoke-RestMethod -Uri "${env:BASE_URI}/v1/Drivers" -Method Post -UseBasicParsing -Body $Body -Headers $Headers -ErrorAction Stop
+        Invoke-RestMethod -Uri "${env:BASE_URI}/v1/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
     }
     catch
     {
