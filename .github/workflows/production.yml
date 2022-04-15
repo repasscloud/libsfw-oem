@@ -1,0 +1,53 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Production
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: "15 23 * * *"
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  Latitude_E5570:
+    runs-on: windows-2019
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v2
+      - name: Execute Main Loop
+        env:
+          BASE_URI: ${{ secrets.DEV_ENGINE_API_URI }}
+          API_KEY: ${{ secrets.VT_API_KEY }}
+        run: |
+          ./scripts/Dell/Latitude_E5570.ps1
+  Latitude_9520:
+    runs-on: windows-2019
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v2
+      - name: Execute Main Loop
+        env:
+          BASE_URI: ${{ secrets.DEV_ENGINE_API_URI }}
+          API_KEY: ${{ secrets.VT_API_KEY }}
+        run: |
+          ./scripts/Dell/Latitude_9520.ps1
+  Latitude_9510:
+    runs-on: windows-2019
+    steps:
+      - name: Check out repo        
+        uses: actions/checkout@v2
+      - name: Execute Main Loop
+        env:
+          BASE_URI: ${{ secrets.DEV_ENGINE_API_URI }}
+          API_KEY: ${{ secrets.VT_API_KEY }}
+        run: |
+          ./scripts/Dell/Latitude_9510.ps1
