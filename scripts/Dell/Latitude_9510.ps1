@@ -56,6 +56,12 @@ $undetectedCount = $scanResults[2]
 $timeoutCount = $scanResults[3]
 $harmlessCount = $scanResults[4]
 $maliciousCount = $scanResults[5]
+Write-Output $UriScanId
+Write-Output $suspiciousCount 
+Write-Output $undetectedCount
+Write-Output $timeoutCount 
+Write-Output $harmlessCount
+Write-Output $maliciousCount
 
 <# VT API RATE LIMIT #>
 Start-Sleep -Seconds 21
