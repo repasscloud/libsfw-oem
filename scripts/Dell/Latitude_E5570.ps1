@@ -1,14 +1,15 @@
 <# PRELOAD - DO NOT EDIT #>
+$ErrorActionPreference = "Stop"
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 [System.String]$RootDir = Split-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -Parent
-$ErrorActionPreference = 'Stop'
-[System.String]$BaseUri = $env:BASE_URI
 [System.String]$oem = "Dell"
 [System.String]$notes = "Latitude E5570 is created independantly of main Latitude script."
 [System.String]$winver = "Windows_10"
 [System.String]$biosVersion = [System.String]::Empty
-[System.Int32]$productionYear = 1900
+[System.Int32]$productionYear = 2016
+[System.String]$TestingRoute = "Drivers"
+$Headers = @{accept = 'text/json'}
 
 <# LOAD FUNCTIONS #>
 . $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
@@ -66,6 +67,7 @@ Set-Location -Path $parentpath
 expand $outfile -F:* .
 
 <# VERIFY DRIVER VERSIONS #>
+[System.String]$archUID = [System.String]::Empty
 [System.String[]]$cpuArch = @()
 [System.Boolean]$x64 = $false
 [System.Boolean]$x86 = $false
@@ -75,23 +77,26 @@ if (Test-Path -Path .\E5570\win10\x64)
 {
     [System.Boolean]$x64 = $true
     $cpuArch += "x64"
+    $archUID += "x64::"
 }
 if (Test-Path -Path .\E5570\win10\x86)
 {
     [System.Boolean]$x86 = $true
-    $cpuArch += "x64"
+    $cpuArch += "x86"
+    $archUID += "x86::"
 }
 if (Test-Path -Path .\E5570\win10\arm64)
 {
     [System.Boolean]$arm64 = $true
     $cpuArch += "arm64"
+    $archUID += "arm64::"
 }
 if (Test-Path -Path .\E5570\win10\aarch32)
 {
     [System.Boolean]$aarch32 = $true
     $cpuArch += "aarch32"
+    $archUID += "aarch32::"
 }
-
 
 <# DATA PAYLOAD #>
 # Write-Output "[UUID]:           $([System.Guid]::NewGuid().Guid)"
@@ -116,11 +121,11 @@ if (Test-Path -Path .\E5570\win10\aarch32)
 # Write-Output "[HARMLESS]:       ${harmlessCount}"
 # Write-Output "[MALICIOUS]:      ${maliciousCount}"
 
-<# POST DATA TO API #>
+<# API DATA PAYLOAD #>
 $Body = @{
     'id' = 0
     'uuid' = [System.Guid]::NewGuid().Guid.ToString()
-    'uid' = "${manufacturer}::${make}::${model}::${arch}::${driverversion}"
+    'uid' = "${manufacturer}::${make}::${model}::${archUID}${driverversion}"
     'originalEquipmentManufacturer' = "${oem}"
     'make' = "${make}"
     'model' = "$($model.Replace('Latitude ',''))"
@@ -144,11 +149,21 @@ $Body = @{
     'exploitReportId' = 1
     'notes' = "${notes}"
 } | ConvertTo-Json
-try {
-    Invoke-RestMethod -Uri "https://engine.api.dev.optechx-data.com/v1/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
+$ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/1" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+if ($ApiVerifyResult.id.Count -lt 1 -or $ApiVerifyResult.id.Count -gt 1)
+{
+    try
+    {
+        Invoke-RestMethod -Uri "${env:BASE_URI}/v1/Drivers" -Method Post -UseBasicParsing -Body $Body -Headers $Headers -ErrorAction Stop
+    }
+    catch
+    {
+        $_.Exception.Message
+    }
 }
-catch {
-    $_.Exception.Message
+else
+{
+    Write-Output "$([System.Char]::ConvertFromUTF32("0x1F7E1")) DRIVER ALREADY MAPPED TO API: [ ${manufacturer}::${make}::${model}::${archUID}${driverversion} ]"
 }
 
 <# CLEAN UP #>
