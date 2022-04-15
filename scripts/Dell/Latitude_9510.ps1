@@ -151,7 +151,7 @@ Write-Output "[X86 SUPPORT]:        $($Body | ConvertFrom-Json | Select-Object -
 Write-Output "[ARM64 SUPPORT]:      $($Body | ConvertFrom-Json | Select-Object -ExpandProperty arm64)"
 Write-Output "[AARCH32 SUPPORT]:    $($Body | ConvertFrom-Json | Select-Object -ExpandProperty aarch32)"
 Write-Output "[URI]:                $($Body | ConvertFrom-Json | Select-Object -ExpandProperty uri)"
-Write-Output "[OUTFILE]:            $($Body | ConvertFrom-Json | Select-Object -ExpandProperty outFile)"
+Write-Output "[OUT FILE]:           $($Body | ConvertFrom-Json | Select-Object -ExpandProperty outFile)"
 Write-Output "[LATEST]:             $($Body | ConvertFrom-Json | Select-Object -ExpandProperty latest)"
 Write-Output "[LAST UPDATE]:        $($Body | ConvertFrom-Json | Select-Object -ExpandProperty lastUpdate)"
 Write-Output "[DRIVER WIN VER]:     $($Body | ConvertFrom-Json | Select-Object -ExpandProperty driverWinVer)"
