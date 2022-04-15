@@ -9,7 +9,7 @@ $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 [System.String]$biosVersion = [System.String]::Empty
 [System.Int32]$productionYear = 2021
 [System.String]$TestingRoute = "Drivers"
-$Headers = @{accept = 'text/json'}
+$Headers = @{accept = 'application/json'}
 
 <# LOAD FUNCTIONS #>
 . $RootDir\scripts\Tools\Complete-UrlVTScan.ps1
