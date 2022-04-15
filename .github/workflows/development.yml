@@ -4,8 +4,6 @@ name: Development
 
 # Controls when the workflow will run
 on:
-  schedule:
-    - cron: "15 23 * * *"
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [ dev ]
