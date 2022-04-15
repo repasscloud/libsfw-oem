@@ -22,7 +22,7 @@ $Headers = @{accept = 'application/json'}
 [System.String]$cspname = [System.String]::Empty
 
 <# LATITUDE 9510 WINDOWS 10 DRIVERS #>
-$iwrObject = Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000184698/latitude-9529-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing
+$iwrObject = Invoke-WebRequest -Uri 'https://www.dell.com/support/kbdoc/en-au/000103913/latitude-9510-windows-10-driver-pack' -UserAgent $userAgent -UseBasicParsing
 
 <# DEFINE CAB FILE #>
 $cabfile = $iwrObject.Links | Where-Object -FilterScript {$_.href -match '.*\.cab'} | Select-Object -ExpandProperty href
@@ -64,7 +64,7 @@ Start-Sleep -Seconds 21
 $parentpath = Split-Path -Path $outfile -Parent
 Push-Location
 Set-Location -Path $parentpath
-expand $outfile -F:* .
+expand $outfile -F:* . | Out-Null
 
 <# VERIFY DRIVER VERSIONS #>
 [System.String]$archUID = [System.String]::Empty
@@ -178,5 +178,6 @@ else
 }
 
 <# CLEAN UP #>
+Remove-Item -Path .\9510 -Recurse -Force -Confirm:$false
 Pop-Location
 [System.GC]::Collect()
