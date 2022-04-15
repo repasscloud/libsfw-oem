@@ -4,7 +4,7 @@ $ErrorActionPreference = "Stop"
 $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 [System.String]$RootDir = Split-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -Parent
 [System.String]$oem = "Dell"
-[System.String]$notes = "Latitude 9520 is created independantly of main Latitude script."
+[System.String]$notes = "Latitude 9520 created manually."
 [System.String]$winver = "Windows_10"
 [System.String]$biosVersion = [System.String]::Empty
 [System.Int32]$productionYear = 2021
@@ -98,29 +98,6 @@ if (Test-Path -Path .\9520\win10\aarch32)
     $archUID += "aarch32::"
 }
 
-<# DATA PAYLOAD #>
-# Write-Output "[UUID]:           $([System.Guid]::NewGuid().Guid)"
-# Write-Output "[UID]:            ${manufacturer}::${make}::${model}::${arch}::${driverversion}"
-# Write-Output "[MANUFACTURER]:   ${manufacturer}"
-# Write-Output "[MAKE]:           ${make}"
-# Write-Output "[MODEL]:          $($model.Replace('Latitude ',''))"
-# Write-Output "[CSP VERSION]:    ${cspversion}"
-# Write-Output "[CSP NAME]:       ${cspname}"
-# Write-Output "[DRIVER VERSION]: ${driverversion}"
-# Write-Output "[OEM INSTALLER]:  ${oeminstallclass}"
-# Write-Output "[X64 SUPPORT]:    ${x64}"
-# Write-Output "[X86 SUPPORT]:    ${x86}"
-# Write-Output "[CAB FILE]:       ${cabfile}"
-# Write-Output "[OUT FILE]:       ${outfile}"
-# Write-Output "[LATEST]:         $($true)"
-# Write-Output "[LAST UPDATE]:    $((Get-Date).ToString('yyyyMMdd'))"
-# Write-Output "[SCAN ID]:        ${UriScanId}"
-# Write-Output "[SUSPICIOUS]:     ${suspiciousCount}"
-# Write-Output "[UNDETECTED]:     ${undetectedCount}"
-# Write-Output "[TIMEOUT]:        ${timeoutCount}"
-# Write-Output "[HARMLESS]:       ${harmlessCount}"
-# Write-Output "[MALICIOUS]:      ${maliciousCount}"
-
 <# API DATA PAYLOAD #>
 $Body = @{
     'id' = 0
@@ -149,7 +126,34 @@ $Body = @{
     'exploitReportId' = 1
     'notes' = "${notes}"
 } | ConvertTo-Json
-$Body
+
+<# SHOW DATA PAYLOAD #>
+Write-Output "[UUID]:               $($Body | ConvertFrom-Json | Select-Object -ExpandProperty uuid)"
+Write-Output "[UID]:                $($Body | ConvertFrom-Json | Select-Object -ExpandProperty uid)"
+Write-Output "[MANUFACTURER]:       $($Body | ConvertFrom-Json | Select-Object -ExpandProperty originalEquipmentManufacturer)"
+Write-Output "[MAKE]:               $($Body | ConvertFrom-Json | Select-Object -ExpandProperty make)"
+Write-Output "[MODEL]:              $($Body | ConvertFrom-Json | Select-Object -ExpandProperty model)"
+Write-Output "[CSP VERSION]:        $($Body | ConvertFrom-Json | Select-Object -ExpandProperty cspVersion)"
+Write-Output "[CSP NAME]:           $($Body | ConvertFrom-Json | Select-Object -ExpandProperty cspName)"
+Write-Output "[DRIVER VERSION]:     $($Body | ConvertFrom-Json | Select-Object -ExpandProperty version)"
+Write-Output "[BIOS VERSION]:       $($Body | ConvertFrom-Json | Select-Object -ExpandProperty biosVersion)"
+Write-Output "[PRODUCTION YEAR]:    $($Body | ConvertFrom-Json | Select-Object -ExpandProperty productionYear)"
+Write-Output "[CPU ARCH]:           $($Body | ConvertFrom-Json | Select-Object -ExpandProperty cpuArch)"
+Write-Output "[OEM INSTALL CLASS]:  $($Body | ConvertFrom-Json | Select-Object -ExpandProperty oeminstallClass)"
+Write-Output "[X64 SUPPORT]:        $($Body | ConvertFrom-Json | Select-Object -ExpandProperty x64)"
+Write-Output "[X86 SUPPORT]:        $($Body | ConvertFrom-Json | Select-Object -ExpandProperty x86)"
+Write-Output "[ARM64 SUPPORT]:      $($Body | ConvertFrom-Json | Select-Object -ExpandProperty arm64)"
+Write-Output "[AARCH32 SUPPORT]:    $($Body | ConvertFrom-Json | Select-Object -ExpandProperty aarch32)"
+Write-Output "[URI]:                $($Body | ConvertFrom-Json | Select-Object -ExpandProperty uri)"
+Write-Output "[OUTFILE]:            $($Body | ConvertFrom-Json | Select-Object -ExpandProperty outFile)"
+Write-Output "[LATEST]:             $($Body | ConvertFrom-Json | Select-Object -ExpandProperty latest)"
+Write-Output "[LAST UPDATE]:        $($Body | ConvertFrom-Json | Select-Object -ExpandProperty lastUpdate)"
+Write-Output "[DRIVER WIN VER]:     $($Body | ConvertFrom-Json | Select-Object -ExpandProperty driverWinVer)"
+Write-Output "[URL VT SCAN]:        $($Body | ConvertFrom-Json | Select-Object -ExpandProperty urlVTScan)"
+Write-Output "[EXPLOIT ID REPORT]:  $($Body | ConvertFrom-Json | Select-Object -ExpandProperty exploitReportId)"
+Write-Output "[NOTES]:              $($Body | ConvertFrom-Json | Select-Object -ExpandProperty notes)"
+
+<# INJECT DATA #>
 try {
     $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/2" -Headers $Headers -Method Get).Content | ConvertFrom-Json
     $ApiQueryCount = $ApiVerifyResult.id.Count
