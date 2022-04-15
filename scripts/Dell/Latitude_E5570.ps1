@@ -8,7 +8,7 @@ $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
 [System.String]$winver = "Windows_10"
 [System.String]$biosVersion = [System.String]::Empty
 [System.Int32]$productionYear = 2016
-[System.String]$TestingRoute = "Drivers"
+[System.String]$TestingRoute = "Drivers/uid"
 $Headers = @{accept = 'application/json'}
 
 <# LOAD FUNCTIONS #>
@@ -155,7 +155,7 @@ Write-Output "[NOTES]:              $($Body | ConvertFrom-Json | Select-Object -
 
 <# INJECT DATA #>
 try {
-    $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/1" -Headers $Headers -Method Get).Content | ConvertFrom-Json
+    $ApiVerifyResult = (Invoke-WebRequest -Uri "${env:BASE_URI}/v1/${TestingRoute}/${manufacturer}::${make}::${model}::${archUID}${driverversion}" -Headers $Headers -Method Get).Content | ConvertFrom-Json
     $ApiQueryCount = $ApiVerifyResult.id.Count
 }
 catch {
@@ -165,7 +165,7 @@ if ($ApiQueryCount -lt 1 -or $ApiQueryCount -gt 1)
 {
     try
     {
-        Invoke-RestMethod -Uri "${env:BASE_URI}/v1/Drivers" -Method Post -UseBasicParsing -Body $Body -Headers $Headers -ErrorAction Stop
+        Invoke-RestMethod -Uri "${env:BASE_URI}/v1/Drivers" -Method Post -UseBasicParsing -Body $Body -ContentType "application/json" -ErrorAction Stop
     }
     catch
     {
@@ -178,6 +178,5 @@ else
 }
 
 <# CLEAN UP #>
-Remove-Item -Path .\E5570 -Recurse -Force -Confirm:$false
 Pop-Location
 [System.GC]::Collect()
