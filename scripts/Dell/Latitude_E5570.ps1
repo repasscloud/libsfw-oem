@@ -64,7 +64,7 @@ Start-Sleep -Seconds 21
 $parentpath = Split-Path -Path $outfile -Parent
 Push-Location
 Set-Location -Path $parentpath
-expand $outfile -F:* .
+expand $outfile -F:* . | Out-Null
 
 <# VERIFY DRIVER VERSIONS #>
 [System.String]$archUID = [System.String]::Empty
