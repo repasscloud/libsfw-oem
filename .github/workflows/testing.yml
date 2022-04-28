@@ -24,8 +24,8 @@ jobs:
       - name: Verify User Agent String
         run: |
           [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer // Useragent string for InternetExplorer (9.0)
-          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome           // Useragent string for Chrome (7.0)
-          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::FireFox          // Useragent string for Firefox (4.0)
-          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Opera            // Useragent string for Opera (9.0)
-          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Safari           // Useragent string for Safari (5.0)
+          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer  # Useragent string for InternetExplorer (9.0)
+          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Chrome            # Useragent string for Chrome (7.0)
+          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::FireFox           # Useragent string for Firefox (4.0)
+          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Opera             # Useragent string for Opera (9.0)
+          $userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::Safari            # Useragent string for Safari (5.0)
