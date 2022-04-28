@@ -1,7 +1,7 @@
 <# PRELOAD - DO NOT EDIT #>
 $ErrorActionPreference = "Stop"
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
-$userAgent = [Microsoft.PowerShell.Commands.PSUserAgent]::InternetExplorer
+$userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36 Edg/90.0.818.46"
 [System.String]$RootDir = Split-Path -Path (Split-Path -Path $PSScriptRoot -Parent) -Parent
 [System.String]$oem = "Dell"
 [System.String]$notes = "Latitude 9520 created manually."
